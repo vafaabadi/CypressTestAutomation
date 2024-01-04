@@ -1,0 +1,18 @@
+{
+  "name": "cypresstestautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed --parallel",
+    "chromeTest": "npm run test -- --browser chrome --parallel",
+    "recordCloudTest": "npm run test -- --record --key a979428a-d58d-44e7-8a7b-954738a203b7"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.2",
+    "cypress-iframe": "^1.0.1"
+  }
+}
