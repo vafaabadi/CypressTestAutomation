@@ -5,25 +5,51 @@ on: push
 #schedule:
 # runs tests every day at 4am
 #    - cron: '0 4 * * *'
-
-
+# Install NPM dependencies, cache them correctly
+# and run all Cypress tests
+# - name: Install root dependencies
+# run: npm ci
 
 jobs:
-  cypress-run:
+  install:
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Install root dependencies
-        run: npm ci
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: npm run build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+          
+cypress-run:
+    runs-on: ubuntu-22.04
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download the build folder
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npx cypress info    #build: npm run build
+          # build: npx cypress info    #build: npm run build
           start: npm start
-          browser: edge
+          browser: chrome
           headed: true
           summary-title: 'Headed'
           spec: cypress/integration/examples/*.js
@@ -40,8 +66,8 @@ jobs:
           CYPRESS_PROJECT_ID: 9c692s
           # Get the short ref name of the branch that triggered the workflow run
           COMMIT_INFO_BRANCH: ${{ github.main }}
-          
-      # after the test run completes store videos and any screenshots
+        # after the test run completes store videos and any screenshots
+        
       - uses: actions/upload-artifact@v4
       # add the line below to store screenshots only on failures
         # if: failure()
@@ -55,4 +81,3 @@ jobs:
           path: cypress/videos
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
 
-        
