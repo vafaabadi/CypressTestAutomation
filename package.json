@@ -12,14 +12,15 @@
   "cypress-cucumber-preprocessor": {
     "json": {
       "enabled": true,
-      "output": "cypress/cucumberReports/results.json"
+      "output": "cypress/cucumberReports/cucumber-results.json"
     }
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.6.2",
-    "cypress-iframe": "^1.0.1"
+    "cypress-iframe": "^1.0.1",
+    "multiple-cucumber-html-reporter": "^3.6.0"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.0",
