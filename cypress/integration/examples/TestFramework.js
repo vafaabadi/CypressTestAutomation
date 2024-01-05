@@ -12,13 +12,93 @@ import CheckOutPage from '../TestFramework_PageObjects/CheckOutPage'
 describe('Hooks', function() {
     // it = test case. 
 
-    beforeEach(function(){
+    beforeEach(function()
+    {
         cy.fixture('TestFramework_DataDriven').then(function(data)
         {
             this.data = data
         })
     })
 
+    it('BDD_POM_DataDriven_Command_Iteration', function() {
+        
+        Cypress.config('defaultCommandTimeout',30000)   // applied only to this test case // explicit timeout
+
+        const homePage = new HomePage()
+        const phonesPage = new PhonesPage()
+        const checkOutPage = new CheckOutPage()
+        
+        cy.visit(Cypress.env('url')+"/angularpractice/")
+        // firstname derived from json file
+        homePage.getFirstnameBox().type(this.data.name)
+        // gendre derived from json file
+        homePage.getGendreDropdownBox().select(this.data.gendre)
+        // assert 'two-way data binding example' is showing this.data.name 
+        homePage.getTwoWayDataBindingBox().should('have.value',this.data.name)
+        // assert minLength of Firstname is 2 characters by asserting the HTML minLength=2
+        // have.attr = the way to assert attributes from HTML
+        homePage.getFirstnameBox().should('have.attr','minlength',2)
+        // assert radio button Entrepenuer is disabled
+        homePage.getEntrepeunerRadioBttn().should('be.disabled')
+        // click on Shop
+        homePage.getShopbttn().click()
+        // manual pause. test case can be resumed from TestRunner/Cypress again.
+        //cy.pause()
+        // select the desired phone products using command PhoneShopSelectProduct from commands.json file, data-driven phoneNames from TeamFramework_DataDriven.json file and iteration.
+        this.data.phoneNames.forEach(function(element)
+        {
+            cy.PhoneShopSelectProduct(element)
+        })
+        // click on check out bttn
+        phonesPage.getCheckOutBttn().click()
+
+        var sum = 0
+        cy.get('tbody > tr > td:nth-child(4) > strong').each(($el, index, $list) => {
+        
+            const priceTag = $el.text()
+            var seperatePrice = priceTag.split(' ')
+            var onlyPrice = seperatePrice[1].trim()
+            sum = Number(sum) + Number(onlyPrice)
+        
+        }).then(function()
+        {
+            cy.log(sum)     // create .Then() to let the loop finish first before JS moves to the rest of the code.
+        })
+
+        cy.get('h3 > strong').then(function(element)
+        {
+            const totalTag = element.text()
+            var totalPrice = totalTag.split(' ')  
+            var totalPrice = totalPrice[1].trim()
+            expect(sum).to.equal(Number(totalPrice))
+        })        
+
+        // on CheckOut page, proceed to submit
+        checkOutPage.getCheckoutBttn().click()
+        // delivery location page.
+        // type fr in the delivery location box
+        cy.get('#country').type('i')
+        cy.wait(7000)
+        cy.get('div.suggestions > ul > li > a').each(($el, index, $list) => {
+            if($el.text()===this.data.deliveryCountry) // Indonesia
+            {
+            const countryIndonesia = $el
+            cy.get(countryIndonesia).click()
+            }
+        })
+        cy.get('#country').should('have.value',this.data.deliveryCountry) //assertion Indonesia selected
+        // checked box
+        cy.get('div > label:nth-child(2)').click()
+        // click on Submit bttn
+        cy.get('form > input').click()
+        // assert the success message appeared on the screen
+        cy.get("div[class*='alert']").then(function(element)
+        {
+            const successMessage = element.text()                   // to extract the Success text message
+            expect(successMessage.includes('Success')).to.be.true   // Asserting the text has 'Success' word in it.
+        })
+    
+    })
     
     it('POM_DataDriven_Command_Iteration', function() {
         
