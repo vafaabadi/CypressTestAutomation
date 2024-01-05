@@ -1,7 +1,15 @@
-import {Given,When,Then} from "cypress-cucumber-preprocessor/steps";
+/// <reference types="Cypress" />
+/// <reference types="cypress-iframe" />
+
+import HomePage from '../../../TestFramework_PageObjects/HomePage'
+import PhonesPage from '../../../TestFramework_PageObjects/PhonesPage'
+import CheckOutPage from '../../../TestFramework_PageObjects/CheckOutPage'
+import {Given,When,Then} from "@badeball/cypress-cucumber-preprocessor"
+
 
 const homePage = new HomePage()
 const phonesPage = new PhonesPage()
+const checkOutPage = new CheckOutPage()
 
 
 Given ('I open ecommerce page',()=>
@@ -17,7 +25,7 @@ When ('I add items to Cart',()=>
     // manual pause. test case can be resumed from TestRunner/Cypress again.
     //cy.pause()
     // select the desired phone products using command PhoneShopSelectProduct from commands.json file, data-driven phoneNames from TeamFramework_DataDriven.json file and iteration.
-    this.data.phoneNames.forEach(function(element)
+    globalThis.data.phoneNames.forEach(function(element)
     {
         cy.PhoneShopSelectProduct(element)
     })
@@ -26,7 +34,7 @@ When ('I add items to Cart',()=>
 })
 
 //And Validate the total prices
-And ('Validate the total prices',()=>
+When ('Validate the total prices',()=>
 {
     var sum = 0
         cy.get('tbody > tr > td:nth-child(4) > strong').each(($el, index, $list) => {
@@ -48,12 +56,25 @@ And ('Validate the total prices',()=>
             var totalPrice = totalPrice[1].trim()
             expect(sum).to.equal(Number(totalPrice))
         })
+        // on CheckOut page, proceed to submit
+        checkOutPage.getCheckoutBttn().click()
 })
 
 //Then Select the country, submit and verify Success! message 
-Then('Select the country, submit and verify Success! message',()=>
+Then('Select the country, submit and verify Success! message',(dataTable)=>
 {
-    cy.get('#country').should('have.value',this.data.deliveryCountry) //assertion Indonesia selected
+    // delivery location page.
+        // type fr in the delivery location box
+        cy.get('#country').type('i')
+        cy.wait(7000)
+        cy.get('div.suggestions > ul > li > a').each(($el, index, $list) => {
+            if($el.text()===globalThis.data.deliveryCountry) // Indonesia
+            {
+            const countryIndonesia = $el
+            cy.get(countryIndonesia).click()
+            }
+        })
+    cy.get('#country').should('have.value',globalThis.data.deliveryCountry) //assertion Indonesia selected
         // checked box
         cy.get('div > label:nth-child(2)').click()
         // click on Submit bttn
@@ -64,4 +85,30 @@ Then('Select the country, submit and verify Success! message',()=>
             const successMessage = element.text()                   // to extract the Success text message
             expect(successMessage.includes('Success')).to.be.true   // Asserting the text has 'Success' word in it.
         })
+})
+
+
+When ('I fill the form details',()=>
+{
+        // firstname derived from json file
+        homePage.getFirstnameBox().type(globalThis.data.name)
+        // gendre derived from json file
+        homePage.getGendreDropdownBox().select(globalThis.data.gendre)
+})
+
+Then ('Validate the form behaviour',()=>
+{
+        // assert 'two-way data binding example' is showing this.data.name 
+        homePage.getTwoWayDataBindingBox().should('have.value',globalThis.data.name)
+        // assert minLength of Firstname is 2 characters by asserting the HTML minLength=2
+        // have.attr = the way to assert attributes from HTML
+        homePage.getFirstnameBox().should('have.attr','minlength',2)
+        // assert radio button Entrepenuer is disabled
+        homePage.getEntrepeunerRadioBttn().should('be.disabled')
+        Cypress.config('defaultCommandTimeout',8000)
+})
+
+Then ('select the shop page',()=>
+{
+        homePage.getShopbttn().click()
 })

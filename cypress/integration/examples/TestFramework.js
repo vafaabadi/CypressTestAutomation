@@ -4,7 +4,7 @@
 /// <reference types="cypress-iframe" />
 
 import 'cypress-iframe'
-import HomePage from '../TestFramework_PageObjects/homePage'
+import HomePage from '../TestFramework_PageObjects/HomePage'
 import PhonesPage from '../TestFramework_PageObjects/PhonesPage'
 import CheckOutPage from '../TestFramework_PageObjects/CheckOutPage'
 
@@ -22,6 +22,20 @@ describe('Hooks', function() {
 
     it('BDD_POM_DataDriven_Command_Iteration', function() {
         
+        /*
+        **************************************************
+        **************************************************
+        **************************************************  
+        BDD CUCUMBER: to run BBD, you need to run cucumber .feature file
+        cypress run --spec cypress\integration\examples\BDD\ecommerce.feature --headed --browser chrome
+        OR
+        replace specPattern: 'cypress/integration/examples/*.js by specPattern: 'cypress/integration/examples/BDD/*.feature' and run the cypress as normal.
+        **************************************************
+        **************************************************
+        **************************************************
+        */
+        
+
         Cypress.config('defaultCommandTimeout',30000)   // applied only to this test case // explicit timeout
 
         const homePage = new HomePage()
@@ -240,20 +254,35 @@ describe('Hooks', function() {
 
     })
 
-    it('DataDriven_ValidationsAssertions', function() {
+    it('BDD_DataDriven_ValidationsAssertions', function() {
       
+        /*
+        **************************************************
+        **************************************************
+        **************************************************  
+        BDD CUCUMBER: to run BBD, you need to run cucumber .feature file
+        cypress run --spec cypress\integration\examples\BDD\ecommerce.feature --headed --browser chrome
+        **************************************************
+        **************************************************
+        **************************************************
+        */
+
+        const homePage = new HomePage()
+
         cy.visit(Cypress.env('url')+"/angularpractice/")
         // firstname derived from json file
-        cy.get("div:nth-child(1) > input").type(this.data.name)
+        homePage.getFirstnameBox.type(this.data.name)
         // gendre derived from json file
-        cy.get('#exampleFormControlSelect1').select(this.data.gendre)
+        homePage.getGendreDropdownBox.select(this.data.gendre)
         // assert 'two-way data binding example' is showing this.data.name 
-        cy.get("input[class*='ng-pristine']:nth-child(1)").should('have.value',this.data.name)
+        homePage.getTwoWayDataBindingBox.should('have.value',this.data.name)
         // assert minLength of Firstname is 2 characters by asserting the HTML minLength=2
         // have.attr = the way to assert attributes from HTML
-        cy.get("div:nth-child(1) > input").should('have.attr','minlength',2)
+        homePage.getFirstnameBox.should('have.attr','minlength',2)
         // assert radio button Entrepenuer is disabled
-        cy.get('#inlineRadio3').should('be.disabled')
+        homePage.getEntrepeunerRadioBttn.should('be.disabled')
+        Cypress.config('defaultCommandTimeout',8000)
+        homePage.getShopbttn.click()
 
     })
 
