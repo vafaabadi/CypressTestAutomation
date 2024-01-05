@@ -16,7 +16,7 @@ describe('Hooks', function() {
     {
         cy.fixture('TestFramework_DataDriven').then(function(data)
         {
-            this.data = data
+            globalThis.data = data
         })
     })
 
@@ -30,6 +30,9 @@ describe('Hooks', function() {
         cypress run --spec cypress\integration\examples\BDD\ecommerce.feature --headed --browser chrome
         OR
         replace specPattern: 'cypress/integration/examples/*.js by specPattern: 'cypress/integration/examples/BDD/*.feature' and run the cypress as normal.
+
+        to run BDD test cases by tag, run the following in Terminal: npx cypress run --env tags="@regression"  OR   npx cypress run --env tags="@smoke"   . The BDD test cases were given tags @regression and @smoke in ecommerce.feature file under BDD folder under this project.
+
         **************************************************
         **************************************************
         **************************************************
@@ -44,11 +47,11 @@ describe('Hooks', function() {
         
         cy.visit(Cypress.env('url')+"/angularpractice/")
         // firstname derived from json file
-        homePage.getFirstnameBox().type(this.data.name)
+        homePage.getFirstnameBox().type(globalThis.data.name)
         // gendre derived from json file
-        homePage.getGendreDropdownBox().select(this.data.gendre)
+        homePage.getGendreDropdownBox().select(globalThis.data.gendre)
         // assert 'two-way data binding example' is showing this.data.name 
-        homePage.getTwoWayDataBindingBox().should('have.value',this.data.name)
+        homePage.getTwoWayDataBindingBox().should('have.value',globalThis.data.name)
         // assert minLength of Firstname is 2 characters by asserting the HTML minLength=2
         // have.attr = the way to assert attributes from HTML
         homePage.getFirstnameBox().should('have.attr','minlength',2)
@@ -59,7 +62,7 @@ describe('Hooks', function() {
         // manual pause. test case can be resumed from TestRunner/Cypress again.
         //cy.pause()
         // select the desired phone products using command PhoneShopSelectProduct from commands.json file, data-driven phoneNames from TeamFramework_DataDriven.json file and iteration.
-        this.data.phoneNames.forEach(function(element)
+        globalThis.data.phoneNames.forEach(function(element)
         {
             cy.PhoneShopSelectProduct(element)
         })
@@ -94,13 +97,13 @@ describe('Hooks', function() {
         cy.get('#country').type('i')
         cy.wait(7000)
         cy.get('div.suggestions > ul > li > a').each(($el, index, $list) => {
-            if($el.text()===this.data.deliveryCountry) // Indonesia
+            if($el.text()===globalThis.data.deliveryCountry) // Indonesia
             {
             const countryIndonesia = $el
             cy.get(countryIndonesia).click()
             }
         })
-        cy.get('#country').should('have.value',this.data.deliveryCountry) //assertion Indonesia selected
+        cy.get('#country').should('have.value',globalThis.data.deliveryCountry) //assertion Indonesia selected
         // checked box
         cy.get('div > label:nth-child(2)').click()
         // click on Submit bttn
@@ -124,11 +127,11 @@ describe('Hooks', function() {
         
         cy.visit(Cypress.env('url')+"/angularpractice/")
         // firstname derived from json file
-        homePage.getFirstnameBox().type(this.data.name)
+        homePage.getFirstnameBox().type(globalThis.data.name)
         // gendre derived from json file
-        homePage.getGendreDropdownBox().select(this.data.gendre)
-        // assert 'two-way data binding example' is showing this.data.name 
-        homePage.getTwoWayDataBindingBox().should('have.value',this.data.name)
+        homePage.getGendreDropdownBox().select(globalThis.data.gendre)
+        // assert 'two-way data binding example' is showing globalThis.data.name 
+        homePage.getTwoWayDataBindingBox().should('have.value',globalThis.data.name)
         // assert minLength of Firstname is 2 characters by asserting the HTML minLength=2
         // have.attr = the way to assert attributes from HTML
         homePage.getFirstnameBox().should('have.attr','minlength',2)
@@ -139,7 +142,7 @@ describe('Hooks', function() {
         // manual pause. test case can be resumed from TestRunner/Cypress again.
         //cy.pause()
         // select the desired phone products using command PhoneShopSelectProduct from commands.json file, data-driven phoneNames from TeamFramework_DataDriven.json file and iteration.
-        this.data.phoneNames.forEach(function(element)
+        globalThis.data.phoneNames.forEach(function(element)
         {
             cy.PhoneShopSelectProduct(element)
         })
@@ -174,13 +177,13 @@ describe('Hooks', function() {
         cy.get('#country').type('i')
         cy.wait(7000)
         cy.get('div.suggestions > ul > li > a').each(($el, index, $list) => {
-            if($el.text()===this.data.deliveryCountry) // Indonesia
+            if($el.text()===globalThis.data.deliveryCountry) // Indonesia
             {
             const countryIndonesia = $el
             cy.get(countryIndonesia).click()
             }
         })
-        cy.get('#country').should('have.value',this.data.deliveryCountry) //assertion Indonesia selected
+        cy.get('#country').should('have.value',globalThis.data.deliveryCountry) //assertion Indonesia selected
         // checked box
         cy.get('div > label:nth-child(2)').click()
         // click on Submit bttn
@@ -247,7 +250,7 @@ describe('Hooks', function() {
         // manual pause. test case can be resumed from TestRunner/Cypress again.
         //cy.pause()
         // select the desired phone products using command PhoneShopSelectProduct from commands.json file, data-driven phoneNames from TeamFramework_DataDriven.json file and iteration.
-        this.data.phoneNames.forEach(function(element)
+        globalThis.data.phoneNames.forEach(function(element)
         {
             cy.PhoneShopSelectProduct(element)
         })
@@ -271,18 +274,18 @@ describe('Hooks', function() {
 
         cy.visit(Cypress.env('url')+"/angularpractice/")
         // firstname derived from json file
-        homePage.getFirstnameBox.type(this.data.name)
+        homePage.getFirstnameBox().type(globalThis.data.name)
         // gendre derived from json file
-        homePage.getGendreDropdownBox.select(this.data.gendre)
-        // assert 'two-way data binding example' is showing this.data.name 
-        homePage.getTwoWayDataBindingBox.should('have.value',this.data.name)
+        homePage.getGendreDropdownBox().select(globalThis.data.gendre)
+        // assert 'two-way data binding example' is showing globalThis.data.name 
+        homePage.getTwoWayDataBindingBox().should('have.value',globalThis.data.name)
         // assert minLength of Firstname is 2 characters by asserting the HTML minLength=2
         // have.attr = the way to assert attributes from HTML
-        homePage.getFirstnameBox.should('have.attr','minlength',2)
+        homePage.getFirstnameBox().should('have.attr','minlength',2)
         // assert radio button Entrepenuer is disabled
-        homePage.getEntrepeunerRadioBttn.should('be.disabled')
+        homePage.getEntrepeunerRadioBttn().should('be.disabled')
         Cypress.config('defaultCommandTimeout',8000)
-        homePage.getShopbttn.click()
+        homePage.getShopbttn().click()
 
     })
 
