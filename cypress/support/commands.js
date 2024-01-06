@@ -8,6 +8,11 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
+
+const neatCSV = require('neat-csv')
+
+
+
 //  -- This command will read data from json file and then select the required product
 Cypress.Commands.add('PhoneShopSelectProduct', (ProductName) => { 
 
@@ -19,6 +24,29 @@ Cypress.Commands.add('PhoneShopSelectProduct', (ProductName) => {
     })    
     
 
+})
+
+
+Cypress.Commands.add('ParseCSVFileColor', (RelativePath,desiredHEX,desiredRGB)=> 
+{
+    // pick the location and the file dynamically
+    cy.readFile(Cypress.config("fileServerFolder")+RelativePath)
+    .then(async function(text)      // added async here for await (one line down) doesnt throw error message
+    {
+        const csv = await neatCSV(text)   // now the constact csv is Javascript object
+        console.log(csv)    // run the test case on local cypress test runner and check console on the browser. the csv content will be listed as JS objects.
+        const colorHEX = csv[globalThis.data.colorrowincsvfile].HEX
+        expect(desiredHEX).to.equal(colorHEX)
+        console.log(colorHEX)
+        console.log(desiredHEX)
+        const colorRGB = csv[globalThis.data.colorrowincsvfile].RGB
+        expect(desiredRGB).to.equal(colorRGB)
+        console.log(colorRGB)
+        console.log(desiredRGB)
+        //const TST = csv[1]["Name"]   // If there is space in the js object (for example the js object is Product name), put the object in quotation marks "" and then write it this way:    csv[1]["Product name"]
+        //expect('Silver').to.equal(TST)
+    }
+    )
 })
 
 

@@ -119,7 +119,7 @@ Then ('select the shop page',()=>
 
 Given ('I navigate to the web page',()=>
 {
-    cy.visit(Cypress.env('CsvUrl'))
+    cy.visit(Cypress.env('CsvUrl'))     // written as env variable under cypress.config.js file      CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/"
 })
 
 When ('I download the CSV file',()=>
@@ -133,22 +133,28 @@ When ('I download the CSV file',()=>
     cy.wait(3000)
 })
 
-Then ('Assert a specific color is in the CSV file', ()=>
-{
+//Then ('ZZZAssert a specific color in the CSV file', ()=>
+//{
     // global path to the project - dynamically
     //Cypress.config("fileServerFolder")
     // pick the location and the file dynamically
-    cy.readFile(Cypress.config("fileServerFolder")+'\\cypress\\downloads\\color_srgb.csv')
-    .then(async function(text)      // added async here for await (one line down) doesnt throw error message
-    {
-        const csv = await neatCSV(text)   // now the constact csv is Javascript object
-        console.log(csv)    // run the test case on local cypress test runner and check console on the browser. the csv content will be listed as JS objects.
-        const silverHEX = csv[1].HEX
-        expect('#C0C0C0').to.equal(silverHEX)
-        const silverRGB = csv[1].RGB
-        expect('rgb(75,75,75)').to.equal(silverRGB)
+//    cy.readFile(Cypress.config("fileServerFolder")+'\\cypress\\downloads\\color_srgb.csv')
+//   .then(async function(text)      // added async here for await (one line down) doesnt throw error message
+//    {
+//        const csv = await neatCSV(text)   // now the constact csv is Javascript object
+//        console.log(csv)    // run the test case on local cypress test runner and check console on the browser. the csv content will be listed as JS objects.
+//        const silverHEX = csv[1].HEX
+//        expect('#C0C0C0').to.equal(silverHEX)
+//        const silverRGB = csv[1].RGB
+//        expect('rgb(75,75,75)').to.equal(silverRGB)
         //const TST = csv[1]["Name"]   // If there is space in the js object (for example the js object is Product name), put the object in quotation marks "" and then write it this way:    csv[1]["Product name"]
         //expect('Silver').to.equal(TST)
-    }
-    )
+//    }
+//    )
+//})
+
+Then ('Assert a specific color in the CSV file', ()=>
+{
+    // command from commands.js file 
+    cy.ParseCSVFileColor(globalThis.data.relativepathcsv,globalThis.data.csvhex,globalThis.data.csvhgb)
 })

@@ -3,7 +3,10 @@
   "gendre": "Female",
   "phoneNames": ["Blackberry","Nokia Edge","Samsung","iphone"],
   "deliveryCountry": "Indonesia",
-  "csvfilename": "color_srgb.csv",
-  "csvhgb": "b(75,75,75)"
 
+  "csvfilename": "color_srgb.csv",
+  "relativepathcsv": "\\cypress\\downloads\\color_srgb.csv",
+  "csvhgb": "rgb(50,0,50)",
+  "csvhex": "#800080",
+  "colorrowincsvfile": "15"
 }
