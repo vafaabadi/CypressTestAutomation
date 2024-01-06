@@ -13,3 +13,9 @@ Feature: End to end ecommerce validation
     When I fill the form details
     Then Validate the form behaviour
     Then select the shop page
+    @csvfile
+    Scenario: Download, Parse CSV file and file a specific color in the file
+    Given I navigate to the web page
+    When I download the CSV file
+    Then Assert a specific color is in the CSV file 
+

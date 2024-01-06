@@ -2,6 +2,7 @@
   "name": "John",
   "gendre": "Female",
   "phoneNames": ["Blackberry","Nokia Edge","Samsung","iphone"],
-  "deliveryCountry": "Indonesia"
+  "deliveryCountry": "Indonesia",
+  "csvfilename": "color_srgb.csv"
 
 }

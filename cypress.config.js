@@ -22,11 +22,12 @@ module.exports = defineConfig({
     url: "https://www.rahulshettyacademy.com",
     username: "ThisIsTest",
     password: "ThisIsTest",
+    CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
   },
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
   video: true,
   retries: {
-    runMode: 2,           // rerun the failed test cases one more time.
+    runMode: 1,           // rerun the failed test cases one more time.
     },
   e2e: {
     setupNodeEvents,

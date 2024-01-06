@@ -4,12 +4,16 @@
 import HomePage from '../../../TestFramework_PageObjects/HomePage'
 import PhonesPage from '../../../TestFramework_PageObjects/PhonesPage'
 import CheckOutPage from '../../../TestFramework_PageObjects/CheckOutPage'
+import CsvWebPage from '../../../TestFramework_PageObjects/CsvWebPage'
 import {Given,When,Then} from "@badeball/cypress-cucumber-preprocessor"
 
+
+const neatCSV = require('neat-csv')
 
 const homePage = new HomePage()
 const phonesPage = new PhonesPage()
 const checkOutPage = new CheckOutPage()
+const csvWebPage = new CsvWebPage()
 
 
 Given ('I open ecommerce page',()=>
@@ -111,4 +115,34 @@ Then ('Validate the form behaviour',()=>
 Then ('select the shop page',()=>
 {
         homePage.getShopbttn().click()
+})
+
+Given ('I navigate to the web page',()=>
+{
+    cy.visit(Cypress.env('CsvUrl'))
+})
+
+When ('I download the CSV file',()=>
+{
+    csvWebPage.getCsvDownloadableLink().then(function(element)
+        {
+            const csvFileText = element.text()                          // to extract the Success text message
+            expect(csvFileText.includes('color_srgb.csv')).to.be.true   // Asserting the text has the text in it.
+        })
+    csvWebPage.getCsvDownloadableLink().click()
+    cy.wait(3000)
+})
+
+Then ('Assert a specific color is in the CSV file', ()=>
+{
+    // global path to the project - dynamically
+    //Cypress.config("fileServerFolder")
+    // pick the location and the file dynamically
+    cy.readFile(Cypress.config("fileServerFolder")+'\\cypress\\downloads\\color_srgb.csv')
+    .then(async function(text)      // added async here for await (one line down) doesnt throw error message
+    {
+        const csv = await neatCSV(text)   // now the constact csv is Javascript object
+        console.log(csv)
+    }
+    )
 })

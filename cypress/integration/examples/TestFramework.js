@@ -20,6 +20,15 @@ describe('Hooks', function() {
         })
     })
 
+    it('Download_Parse_CSV', ()=>
+    {
+        cy.visit('https://wsform.com/knowledgebase/sample-csv-files/')
+        // download a dummy csv file
+        cy.get('#post-2363 > section > table:nth-child(6) > tbody > tr:nth-child(1) > td:nth-child(1) > a').click()
+        
+
+    })
+
     it('BDD_POM_DataDriven_Command_Iteration', function() {
         
         /*
@@ -33,6 +42,9 @@ describe('Hooks', function() {
 
         to run BDD test cases by tag, run the following in Terminal: npx cypress run --env tags="@regression"  OR   npx cypress run --env tags="@smoke"   . The BDD test cases were given tags @regression and @smoke in ecommerce.feature file under BDD folder under this project.
 
+        to trigger HTML report, run in the Terminal: node C:\Users\44741\CypressTestAutomation\cucumber-html-report.js
+        Once you ran the line code above, then copy the path of C:\Users\44741\CypressTestAutomation\cypress\cucumberReports\cucumber-HTMLreport.html\index.html and pasted it on web browser to view graphical HTML report.
+        
         **************************************************
         **************************************************
         **************************************************
