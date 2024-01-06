@@ -27,7 +27,7 @@ module.exports = defineConfig({
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
   video: true,
   retries: {
-    runMode: 1,           // rerun the failed test cases one more time.
+    runMode: 0,           // rerun the failed test cases one more time.
     },
   e2e: {
     setupNodeEvents,

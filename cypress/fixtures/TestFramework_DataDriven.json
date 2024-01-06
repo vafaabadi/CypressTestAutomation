@@ -3,6 +3,7 @@
   "gendre": "Female",
   "phoneNames": ["Blackberry","Nokia Edge","Samsung","iphone"],
   "deliveryCountry": "Indonesia",
-  "csvfilename": "color_srgb.csv"
+  "csvfilename": "color_srgb.csv",
+  "csvhgb": "b(75,75,75)"
 
 }
