@@ -1,11 +1,13 @@
 Feature: End to end ecommerce validation
 
+    application regression test
+
     @csvfile
     Scenario: Download, Parse CSV file and file a specific color in the file
     Given I navigate to the web page
     When I download the CSV file
     Then Assert a specific color in the CSV file
-    application regression test
+
     @regression
     Scenario: ecommerce products delivery
     Given I open ecommerce page
