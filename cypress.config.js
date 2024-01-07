@@ -2,13 +2,30 @@ const { defineConfig } = require("cypress");
 
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
 const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
+const sqlServer = require('cypress-sql-server');
 //const browserify = require("@cypress/browserify-preprocessor");
 
 async function setupNodeEvents(on, config) {
+
+  config.db = {
+    userName: "cypresstester",
+    password: "Asdf95jkl!",
+    server: "cypresstestautomationportfolio.database.windows.net",
+    options: {
+        database: "CypressTestAutomation",
+        encrypt: true,
+        rowCollectionOnRequestCompletion : true
+    }
+}
+
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
   await preprocessor.addCucumberPreprocessorPlugin(on, config);
 
   on("file:preprocessor", browserify.default(config));
+
+  tasks = sqlServer.loadDBPlugin(config.db);
+  on('task', tasks);
+
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
@@ -23,6 +40,7 @@ module.exports = defineConfig({
     username: "ThisIsTest",
     password: "ThisIsTest",
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
+    LoginUrl: "https://practicetestautomation.com/practice-test-login/"
   },
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
   video: true,

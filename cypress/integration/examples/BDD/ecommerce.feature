@@ -2,8 +2,14 @@ Feature: End to end ecommerce validation
 
     application regression test
 
+    @accessdb
+    Scenario: Access data from DB and use it in test case
+    Given I connect to DB to retreive data
+    When I pull data from DB to test automation code
+    Then Assert the desired data was pulled in 
+
     @csvfile
-    Scenario: Download, Parse CSV file and file a specific color in the file
+    Scenario: Download, Parse CSV file and assert a specific color in the file
     Given I navigate to the web page
     When I download the CSV file
     Then Assert a specific color in the CSV file

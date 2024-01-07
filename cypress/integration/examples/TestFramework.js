@@ -7,16 +7,49 @@ import 'cypress-iframe'
 import HomePage from '../TestFramework_PageObjects/HomePage'
 import PhonesPage from '../TestFramework_PageObjects/PhonesPage'
 import CheckOutPage from '../TestFramework_PageObjects/CheckOutPage'
+import LogInPage from '../TestFramework_PageObjects/LogInPage'
 
 
 describe('Hooks', function() {
-    // it = test case. 
+    // it = test case.
 
     beforeEach(function()
     {
         cy.fixture('TestFramework_DataDriven').then(function(data)
         {
             globalThis.data = data
+        })
+
+        cy.sqlServer("select * from Credentials").then(function(result)
+        {
+            globalThis.cred = result
+        })
+    })
+
+    it('LogIn_By_Data_From_DB',()=>
+    {
+        const logInPage = new LogInPage()
+
+        cy.visit(Cypress.env('LoginUrl'))
+        console.log(globalThis.cred)
+        logInPage.getUsernameBox().type(globalThis.cred[1])
+        logInPage.getPasswordBox().type(globalThis.cred[2])
+        logInPage.getSubmitBox().click()
+        cy.get('p strong').then(function(ele)
+        {
+            ele = ele.text()
+            console.log(ele)
+            expect(ele.includes('Congratulations')).to.be.true
+        })
+
+    })
+
+    it('Read_data_from_DB',()=>
+    {
+        cy.sqlServer("select * from People").then(function(records)
+        {
+            console.log(records[0][1])   // result[0] = first row of records (array).    // result[0][1] = second cell (first cell has index 0, second cel has index 1) in the first row.
+            console.log(records[1][3])   // second row returned ( [1] ) and pick 4th cell ( [3] ) in the row.
         })
     })
 
@@ -25,8 +58,6 @@ describe('Hooks', function() {
         cy.visit('https://wsform.com/knowledgebase/sample-csv-files/')
         // download a dummy csv file
         cy.get('#post-2363 > section > table:nth-child(6) > tbody > tr:nth-child(1) > td:nth-child(1) > a').click()
-        
-
     })
 
     it('BDD_POM_DataDriven_Command_Iteration', function() {

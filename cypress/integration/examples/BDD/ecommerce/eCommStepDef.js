@@ -138,3 +138,18 @@ Then ('Assert a specific color in the CSV file', ()=>
     // command from commands.js file 
     cy.ParseCSVFileColor(globalThis.data.relativepathcsv,globalThis.data.csvhex,globalThis.data.csvhgb)
 })
+
+Given ('I connect to DB to retreive data', ()=>
+{
+
+})
+
+When ('I pull data from DB to log in ', ()=>
+{
+
+})
+
+Then ('Assert the user logged in successfully', ()=>
+{
+
+}) 
