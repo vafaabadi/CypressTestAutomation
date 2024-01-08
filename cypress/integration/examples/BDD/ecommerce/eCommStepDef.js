@@ -137,8 +137,15 @@ When ('I download the CSV file',()=>
 
 Then ('Assert a specific color in the CSV file', ()=>
 {
-    // command from commands.js file 
+    // command from commands.js file // asserts specific cells in the csv file
     cy.ParseCSVFileColor(globalThis.data.relativepathcsv,globalThis.data.csvhex,globalThis.data.csvhgb)
+
+    //// doesnt look for a specific cell and then assert the cell. it will search the whole csv file as a text and find the word you are asserting.
+    //cy.readFile(globalThis.data.relativepathcsv).then(function(text)
+    //{
+    //    expect(text).to.include(globalThis.data.csvhex)
+    //    expect(text).to.include(globalThis.data.csvhgb)
+    //})
 })
 
 Given ('I visit the web site I want to log into', ()=>
@@ -163,3 +170,34 @@ Then ('Assert I logged in successfully.', ()=>
             expect(ele.includes('Congratulations')).to.be.true
         })
 }) 
+
+Given ('I navigate to the web page - Excel', ()=>
+{
+    cy.visit(Cypress.env('ExcelUrl'))
+})
+
+When ('I download the Excel file', ()=>
+{
+    cy.get('a[download*="Data Join vs Data Blending.xlsx"]').click()
+    cy.wait(2000)
+})
+
+Then ('Assert a specific cell in the Excel file', ()=>
+{
+        // Parse and read Excel file
+        const excelFilePath = Cypress.config("fileServerFolder")+"\\cypress\\downloads\\Data Join vs Data Blending.xlsx"
+        cy.task('excelToJsonConverter',excelFilePath).then(function(result)
+        {
+            //cy.log(result);
+            console.log(result);
+            console.log(result.Department)
+            console.log(result.Department[14].C)
+            console.log(result.Department[14].A)
+            // asserting specific cell in the excel file
+            const employeeName = result.Department[14].C
+            expect(globalThis.data.employeename).to.equal(employeeName)
+            // asserting specific cell in the excel file
+            const employeeDeptId = result.Department[14].A
+            expect(globalThis.data.employeedeptid).to.equal(employeeDeptId)            
+        })
+})

@@ -54,7 +54,8 @@ module.exports = defineConfig({
     username: "ThisIsTest",
     password: "ThisIsTest",
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
-    LoginUrl: "https://practicetestautomation.com/practice-test-login/"
+    LoginUrl: "https://practicetestautomation.com/practice-test-login/",
+    ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
   },
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
   video: true,
@@ -63,7 +64,7 @@ module.exports = defineConfig({
     },
   e2e: {
     setupNodeEvents,
-    specPattern: 'cypress/integration/examples/*.js'   // to avoid BDD triggering and running, replace the line by: specPattern: 'cypress/integration/examples/*.js'     specPattern: 'cypress/integration/examples/BDD/*.feature'
+    specPattern: 'cypress/integration/examples/BDD/*.feature'   // to avoid BDD triggering and running, replace the line by: specPattern: 'cypress/integration/examples/*.js'     specPattern: 'cypress/integration/examples/BDD/*.feature'
     
   },
 });

@@ -45,14 +45,20 @@ describe('Hooks', function() {
             console.log(result.Department)
             console.log(result.Department[14].C)
             console.log(result.Department[14].A)
-
+            // asserting specific cell in the excel file
             const employeeName = result.Department[14].C
             expect(globalThis.data.employeename).to.equal(employeeName)
-
+            // asserting specific cell in the excel file
             const employeeDeptId = result.Department[14].A
             expect(globalThis.data.employeedeptid).to.equal(employeeDeptId)            
         })
 
+        //// doesnt look for a specific cell and then assert the cell. it will search the whole excel file as a text and find the word you are asserting.
+        //cy.readFile(excelFilePath).then(function(text)
+        //{
+        //    expect(text).to.include(globalThis.data.employeename)
+        //    expect(text).to.include(globalThis.data.employeedeptid)
+        //})
 
     })
 

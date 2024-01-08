@@ -2,6 +2,12 @@ Feature: End to end ecommerce validation
 
     application regression test
 
+    @excelfile
+    Scenario: Download, Parse, read Excel file and assert a specific cell in the file
+    Given I navigate to the web page - Excel
+    When I download the Excel file
+    Then Assert a specific cell in the Excel file
+
     @dbintegration
     Scenario: Read credentials from DB and use it to log into web site
     Given I visit the web site I want to log into
