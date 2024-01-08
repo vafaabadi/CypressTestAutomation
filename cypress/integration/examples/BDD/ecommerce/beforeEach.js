@@ -4,6 +4,10 @@ beforeEach(()=>
         {
             globalThis.data = data
         })
+        cy.sqlServer("select * from Credentials").then(function(result)
+        {
+            globalThis.cred = result
+        })
     })
 
 

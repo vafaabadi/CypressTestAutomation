@@ -2,11 +2,11 @@ Feature: End to end ecommerce validation
 
     application regression test
 
-    @accessdb
-    Scenario: Access data from DB and use it in test case
-    Given I connect to DB to retreive data
-    When I pull data from DB to test automation code
-    Then Assert the desired data was pulled in 
+    @dbintegration
+    Scenario: Read credentials from DB and use it to log into web site
+    Given I visit the web site I want to log into
+    When I read credentials from DB and provide them as username and password
+    Then Assert I logged in successfully. 
 
     @csvfile
     Scenario: Download, Parse CSV file and assert a specific color in the file
@@ -20,6 +20,7 @@ Feature: End to end ecommerce validation
     When I add items to Cart
     When Validate the total prices
     Then Select the country, submit and verify Success! message 
+    
     @smoke
     Scenario: Filling the form prior to Shop
     Given I open ecommerce page

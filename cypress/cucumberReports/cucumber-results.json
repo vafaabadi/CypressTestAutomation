@@ -4,55 +4,110 @@
     "elements": [
       {
         "description": "",
-        "id": "end-to-end-ecommerce-validation;download,-parse-csv-file-and-file-a-specific-color-in-the-file",
+        "id": "end-to-end-ecommerce-validation;read-credentials-from-db-and-use-it-to-log-into-web-site",
         "keyword": "Scenario",
         "line": 6,
-        "name": "Download, Parse CSV file and file a specific color in the file",
+        "name": "Read credentials from DB and use it to log into web site",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 7,
-            "name": "I navigate to the web page",
+            "name": "I visit the web site I want to log into",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1917000000
+              "duration": 1872000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 8,
-            "name": "I download the CSV file",
+            "name": "I read credentials from DB and provide them as username and password",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 3815000000
+              "duration": 1696000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 9,
+            "name": "Assert I logged in successfully.",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1042000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@dbintegration",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "end-to-end-ecommerce-validation;download,-parse-csv-file-and-assert-a-specific-color-in-the-file",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Download, Parse CSV file and assert a specific color in the file",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "I navigate to the web page",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 548000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I download the CSV file",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4070000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
             "name": "Assert a specific color in the CSV file",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 55000000
+              "duration": 85000000
             }
           }
         ],
         "tags": [
           {
             "name": "@csvfile",
-            "line": 5
+            "line": 11
           }
         ],
         "type": "scenario"
@@ -61,76 +116,8 @@
         "description": "",
         "id": "end-to-end-ecommerce-validation;ecommerce-products-delivery",
         "keyword": "Scenario",
-        "line": 12,
-        "name": "ecommerce products delivery",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 13,
-            "name": "I open ecommerce page",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1787000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 14,
-            "name": "I add items to Cart",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1860000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 15,
-            "name": "Validate the total prices",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 144000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 16,
-            "name": "Select the country, submit and verify Success! message",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 7569000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@regression",
-            "line": 11
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "end-to-end-ecommerce-validation;filling-the-form-prior-to-shop",
-        "keyword": "Scenario",
         "line": 18,
-        "name": "Filling the form prior to Shop",
+        "name": "ecommerce products delivery",
         "steps": [
           {
             "arguments": [],
@@ -142,53 +129,121 @@
             },
             "result": {
               "status": "passed",
-              "duration": 781000000
+              "duration": 1710000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 20,
-            "name": "I fill the form details",
+            "name": "I add items to Cart",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 368000000
+              "duration": 1873000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
+            "keyword": "When ",
             "line": 21,
-            "name": "Validate the form behaviour",
+            "name": "Validate the total prices",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 21000000
+              "duration": 142000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 22,
+            "name": "Select the country, submit and verify Success! message",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7563000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 17
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "end-to-end-ecommerce-validation;filling-the-form-prior-to-shop",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Filling the form prior to Shop",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 26,
+            "name": "I open ecommerce page",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1276000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I fill the form details",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 387000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "Validate the form behaviour",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
             "name": "select the shop page",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1901000000
+              "duration": 353000000
             }
           }
         ],
         "tags": [
           {
             "name": "@smoke",
-            "line": 17
+            "line": 24
           }
         ],
         "type": "scenario"

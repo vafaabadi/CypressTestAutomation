@@ -5,6 +5,7 @@ import HomePage from '../../../TestFramework_PageObjects/HomePage'
 import PhonesPage from '../../../TestFramework_PageObjects/PhonesPage'
 import CheckOutPage from '../../../TestFramework_PageObjects/CheckOutPage'
 import CsvWebPage from '../../../TestFramework_PageObjects/CsvWebPage'
+import LogInPage from '../../../TestFramework_PageObjects/LogInPage'
 import {Given,When,Then} from "@badeball/cypress-cucumber-preprocessor"
 
 
@@ -14,6 +15,7 @@ const homePage = new HomePage()
 const phonesPage = new PhonesPage()
 const checkOutPage = new CheckOutPage()
 const csvWebPage = new CsvWebPage()
+const logInPage = new LogInPage()
 
 
 Given ('I open ecommerce page',()=>
@@ -139,17 +141,25 @@ Then ('Assert a specific color in the CSV file', ()=>
     cy.ParseCSVFileColor(globalThis.data.relativepathcsv,globalThis.data.csvhex,globalThis.data.csvhgb)
 })
 
-Given ('I connect to DB to retreive data', ()=>
+Given ('I visit the web site I want to log into', ()=>
 {
-
+    cy.visit(Cypress.env('LoginUrl'))
 })
 
-When ('I pull data from DB to log in ', ()=>
+When ('I read credentials from DB and provide them as username and password', ()=>
 {
-
+    logInPage.getUsernameBox().type(globalThis.cred[1])
+    logInPage.getPasswordBox().type(globalThis.cred[2])
+    logInPage.getSubmitBox().click()
 })
 
-Then ('Assert the user logged in successfully', ()=>
+Then ('Assert I logged in successfully.', ()=>
 {
-
+    cy.wait(1000)
+    cy.get('p strong').then(function(ele)
+        {
+            ele = ele.text()
+            console.log(ele)
+            expect(ele.includes('Congratulations')).to.be.true
+        })
 }) 
