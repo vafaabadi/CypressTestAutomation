@@ -9,7 +9,7 @@ Feature: End to end ecommerce validation
     Then Assert I logged in successfully. 
 
     @csvfile
-    Scenario: Download, Parse CSV file and assert a specific color in the file
+    Scenario: Download, Parse, read CSV file and assert a specific color in the file
     Given I navigate to the web page
     When I download the CSV file
     Then Assert a specific color in the CSV file

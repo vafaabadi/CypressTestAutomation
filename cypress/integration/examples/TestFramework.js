@@ -10,6 +10,7 @@ import CheckOutPage from '../TestFramework_PageObjects/CheckOutPage'
 import LogInPage from '../TestFramework_PageObjects/LogInPage'
 
 
+
 describe('Hooks', function() {
     // it = test case.
 
@@ -24,6 +25,35 @@ describe('Hooks', function() {
         {
             globalThis.cred = result
         })
+    })
+
+    
+    it('Download_Parse_Excel',()=>
+    {
+
+        // visit the web site to download the Excel file
+        cy.visit('https://www.wisdomaxis.com/technology/software/data/for-reports/')
+        cy.get('a[download*="Data Join vs Data Blending.xlsx"]').click()
+
+        cy.wait(2000)
+        // Parse and read Excel file
+        const excelFilePath = Cypress.config("fileServerFolder")+"\\cypress\\downloads\\Data Join vs Data Blending.xlsx"
+        cy.task('excelToJsonConverter',excelFilePath).then(function(result)
+        {
+            //cy.log(result);
+            console.log(result);
+            console.log(result.Department)
+            console.log(result.Department[14].C)
+            console.log(result.Department[14].A)
+
+            const employeeName = result.Department[14].C
+            expect(globalThis.data.employeename).to.equal(employeeName)
+
+            const employeeDeptId = result.Department[14].A
+            expect(globalThis.data.employeedeptid).to.equal(employeeDeptId)            
+        })
+
+
     })
 
     it('LogIn_By_Data_From_DB',()=>
@@ -58,6 +88,8 @@ describe('Hooks', function() {
         cy.visit('https://wsform.com/knowledgebase/sample-csv-files/')
         // download a dummy csv file
         cy.get('#post-2363 > section > table:nth-child(6) > tbody > tr:nth-child(1) > td:nth-child(1) > a').click()
+        // THIS IS INCOMPLETE. GO TO 'BDD' FOLDER AND SEARCH FOR THE CSV FILE TEST CASE. THE TEST CASE UNDER BDD FILE IS COMPREHENSIVE.
+        // THIS IS INCOMPLETE. GO TO 'BDD' FOLDER AND SEARCH FOR THE CSV FILE TEST CASE. THE TEST CASE UNDER BDD FILE IS COMPREHENSIVE.
     })
 
     it('BDD_POM_DataDriven_Command_Iteration', function() {

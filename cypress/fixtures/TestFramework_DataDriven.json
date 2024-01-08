@@ -8,5 +8,11 @@
   "relativepathcsv": "\\cypress\\downloads\\color_srgb.csv",
   "csvhgb": "rgb(50,0,50)",
   "csvhex": "#800080",
-  "colorrowincsvfile": "15"
+  "colorrowincsvfile": "15",
+
+  "employeename": "SFS",
+  "employeedeptid": 140
+
+
+
 }
