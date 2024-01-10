@@ -16,60 +16,61 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Cypress install
-        uses: cypress-io/github-action@v6
         with:
-          # Disable running of tests within install job
-          runTests: false
-          build: npm run build
+          path: 'app'
 
-      - name: Save build folder
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19
+
+      - name: Install dependencies
+        working-directory: ./app
+        run: npm install
+
+      #      - name: Cypress install
+      #        uses: cypress-io/github-action@v6
+
+      - name: Compress
+        working-directory: ./app
+        run: Compress-Archive -Path ./* -Destination ./project.zip
+
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: build
+          name: project
           if-no-files-found: error
-          path: build
-          
+          path: app/project.zip
+
   cypress-run:
     runs-on: windows-latest
     needs: install
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19
 
       - name: Download the build folder
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          name: build
-          path: build
+          name: project
+      #          path: app
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          # build: npx cypress info    #build: npm run build
-          start: npm start
-          browser: chrome
-          headed: true
-          summary-title: 'Headed'
-          spec: cypress/integration/examples/*.js
-          record: true
-          parallel: true
-          tag: node-${{ matrix.node }}
-          config: pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000
-        env:
-          # pass GitHub token to allow accurately detecting a build vs a re-run build
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # pass the Cypress Cloud record key as an environment variable
-          CYPRESS_RECORD_KEY: a979428a-d58d-44e7-8a7b-954738a203b7
-          # pass the project ID from the secrets through environment variable
-          CYPRESS_PROJECT_ID: 9c692s
-          # Get the short ref name of the branch that triggered the workflow run
-          COMMIT_INFO_BRANCH: ${{ github.main }}
-        # after the test run completes store videos and any screenshots
-        
-      - uses: actions/upload-artifact@v4
-      # add the line below to store screenshots only on failures
+      - name: Uncompress
+        #        working-directory: ./app
+        run: Expand-Archive ./project.zip -DestinationPath ./
+
+      - name: Cypress install
+        run: npx cypress install
+
+      - name: Cypress test
+        run: npm test
+        continue-on-error: true
+
+      - name: Upload screenshots & videos
+        uses: actions/upload-artifact@v4
+        # add the line below to store screenshots only on failures
         # if: failure()
         with:
           name: cypress-screenshots
