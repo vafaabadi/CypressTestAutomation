@@ -65,7 +65,17 @@ jobs:
         run: npx cypress install
 
       - name: Cypress test
-        run: npm test
+        run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/*.js" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # pass the Cypress Cloud record key as an environment variable
+          CYPRESS_RECORD_KEY: a979428a-d58d-44e7-8a7b-954738a203b7
+          # pass the project ID from the secrets through environment variable
+          CYPRESS_PROJECT_ID: 9c692s
+          # Get the short ref name of the branch that triggered the workflow run
+          COMMIT_INFO_BRANCH: ${{ github.main }}
+          # after the test run completes store videos and any screenshots
         continue-on-error: true
 
       - name: Upload screenshots & videos
