@@ -68,6 +68,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           # build: npx cypress info    #build: npm run build
+          path: app
           start: npm start
           browser: chrome
           headed: true
