@@ -7,7 +7,6 @@ const sqlServer = require('cypress-sql-server');
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
 
-
 async function setupNodeEvents(on, config) {
 
   config.db = {
@@ -33,7 +32,7 @@ async function setupNodeEvents(on, config) {
       {
         const result = excelToJson
         ({
-        source: fs.readFileSync(excelFilePath) 
+        source: fs.readFileSync(excelFilePath)
         });
         return result
       }
@@ -61,14 +60,15 @@ module.exports = defineConfig({
   video: true,
   retries: {
     runMode: 0,           // rerun the failed test cases one more time.
-    },
+  },
   e2e: {
     setupNodeEvents,
-    specPattern: 'cypress/integration/examples/BDD/*.feature'   // to avoid BDD triggering and running, replace the line by: specPattern: 'cypress/integration/examples/*.js'     specPattern: 'cypress/integration/examples/BDD/*.feature'
-    
+    specPattern: 'cypress/integration/examples/BDD/*.feature'
+    // // to avoid BDD triggering and running, replace the line by:
+    // specPattern: 'cypress/integration/examples/*.js'
+
   },
 });
-
 
 /* On Cypress Test Runner, go to Settings, Project Settings, scroll down and pick any defaults settings & change and paste it in cypress.config.js on VS Code to modify that setting.
 */
