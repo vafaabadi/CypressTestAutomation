@@ -65,7 +65,7 @@ jobs:
         run: npx cypress install
 
       - name: Cypress test
-        run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/**/*.feature" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
+        run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/**/*" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
         env:
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
