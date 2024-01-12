@@ -72,3 +72,5 @@ module.exports = defineConfig({
 
 /* On Cypress Test Runner, go to Settings, Project Settings, scroll down and pick any defaults settings & change and paste it in cypress.config.js on VS Code to modify that setting.
 */
+
+// checking if repo change from GitHub to Azure repos did go through successfully.
