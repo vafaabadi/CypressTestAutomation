@@ -1,14 +1,12 @@
-name: Cypress Tests
+name: Cypress Tests on Triggers 
 
-on: push
-#on:
-#schedule:
-# runs tests every day at 4am
-#    - cron: '0 4 * * *'
-# Install NPM dependencies, cache them correctly
-# and run all Cypress tests
-# - name: Install root dependencies
-# run: npm ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # runs tests every day at 6pm
+    - cron: '0 18 * * *'
 
 jobs:
   install:
