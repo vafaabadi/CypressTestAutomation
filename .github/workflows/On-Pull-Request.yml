@@ -1,14 +1,6 @@
 name: Cypress Tests On Pull Request
 
 on: pull_request
-#on:
-#schedule:
-# runs tests every day at 4am
-#    - cron: '0 4 * * *'
-# Install NPM dependencies, cache them correctly
-# and run all Cypress tests
-# - name: Install root dependencies
-# run: npm ci
 
 jobs:
   install:
