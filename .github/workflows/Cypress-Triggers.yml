@@ -1,4 +1,4 @@
-name: Cypress Tests on Push 
+name: Cypress Tests on Triggers 
 
 on:
   push:
