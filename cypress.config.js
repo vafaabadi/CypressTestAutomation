@@ -73,4 +73,6 @@ module.exports = defineConfig({
 /* On Cypress Test Runner, go to Settings, Project Settings, scroll down and pick any defaults settings & change and paste it in cypress.config.js on VS Code to modify that setting.
 */
  
-// create branch 001
+
+// check if "push" also triggers Actions on side branches or not. This is second commit. This is third commit.
+
