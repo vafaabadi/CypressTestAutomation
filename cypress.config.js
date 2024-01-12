@@ -81,4 +81,4 @@ to find out remote origin url. for example it is on GitHub https://github.com/va
 then type in Terminal: git remote set-url origin https://vafaabadi12@dev.azure.com/vafaabadi12/CypressTestAutomation/_git/CypressTestAutomation
 then type in again in Terminal: git remote -v
 now, you see that the remote origin url changed from GitHub to Azure. 
-*/
+*/ 
