@@ -1,8 +1,8 @@
-name: Cypress Tests on Triggers 
+name: Cypress Tests on Triggers
 
 on:
   push:
-    branches:    
+    branches:
       - '*'         # matches every branch that doesn't contain a '/'
       - '*/*'       # matches every branch containing a single '/'
       - '**'        # matches every branch
@@ -92,4 +92,9 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-html-report
+          path: cypress/cucumberReports/cucumber-HTMLreport.html
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
