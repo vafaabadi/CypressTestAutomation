@@ -73,4 +73,12 @@ module.exports = defineConfig({
 /* On Cypress Test Runner, go to Settings, Project Settings, scroll down and pick any defaults settings & change and paste it in cypress.config.js on VS Code to modify that setting.
 */
 
-// checking if repo change from GitHub to Azure repos did go through successfully.
+
+
+/* how to change remote repo from Terminal:
+first type in Terminal: git remote -v
+to find out remote origin url. for example it is on GitHub https://github.com/vafaabadi/CypressTestAutomation.git and you would like to change it to Azure repos https://vafaabadi12@dev.azure.com/vafaabadi12/CypressTestAutomation/_git/CypressTestAutomation
+then type in Terminal: git remote set-url origin https://vafaabadi12@dev.azure.com/vafaabadi12/CypressTestAutomation/_git/CypressTestAutomation
+then type in again in Terminal: git remote -v
+now, you see that the remote origin url changed from GitHub to Azure. 
+*/
