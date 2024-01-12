@@ -74,5 +74,3 @@ module.exports = defineConfig({
 */
  
 
-// check if "push" also triggers Actions on side branches or not. This is second commit. This is third commit.
-
