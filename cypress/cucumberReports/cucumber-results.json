@@ -19,7 +19,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4279000000
+              "duration": 5103000000
             }
           },
           {
@@ -32,7 +32,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2207000000
+              "duration": 2311000000
             }
           },
           {
@@ -45,13 +45,13 @@
             },
             "result": {
               "status": "passed",
-              "duration": 68000000
+              "duration": 73000000
             }
           }
         ],
         "tags": [
           {
-            "name": "@excelFile",
+            "name": "@Test001",
             "line": 5
           }
         ],
@@ -74,7 +74,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1787000000
+              "duration": 1919000000
             }
           },
           {
@@ -87,7 +87,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1963000000
+              "duration": 1546000000
             }
           },
           {
@@ -100,13 +100,13 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1035000000
+              "duration": 1033000000
             }
           }
         ],
         "tags": [
           {
-            "name": "@dbIntegration",
+            "name": "@Test002",
             "line": 11
           }
         ],
@@ -129,7 +129,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1122000000
+              "duration": 1916000000
             }
           },
           {
@@ -142,7 +142,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3878000000
+              "duration": 3789000000
             }
           },
           {
@@ -161,7 +161,7 @@
         ],
         "tags": [
           {
-            "name": "@csvFile",
+            "name": "@Test003",
             "line": 17
           }
         ],
@@ -184,7 +184,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1719000000
+              "duration": 1843000000
             }
           },
           {
@@ -197,7 +197,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1831000000
+              "duration": 2077000000
             }
           },
           {
@@ -210,7 +210,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 146000000
+              "duration": 156000000
             }
           },
           {
@@ -223,13 +223,13 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7571000000
+              "duration": 7619000000
             }
           }
         ],
         "tags": [
           {
-            "name": "@Regression",
+            "name": "@Test004",
             "line": 23
           }
         ],
@@ -252,7 +252,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 682000000
+              "duration": 984000000
             }
           },
           {
@@ -265,7 +265,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 353000000
+              "duration": 371000000
             }
           },
           {
@@ -278,7 +278,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 20000000
+              "duration": 27000000
             }
           },
           {
@@ -291,13 +291,13 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1836000000
+              "duration": 331000000
             }
           }
         ],
         "tags": [
           {
-            "name": "@Smoke",
+            "name": "@Test005",
             "line": 30
           }
         ],
