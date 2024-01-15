@@ -8,10 +8,10 @@ report.generate({
             name: 'chrome',
             version: '100'
         },
-        device: 'Cloud',
+        device: 'Local Test Machine',
         platform: {
-            name: 'Windows',
-            version: '11'
+            name: 'ChromeBook',
+            version: '15'
         }
     },
     customData: {
