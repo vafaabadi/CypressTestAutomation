@@ -80,6 +80,8 @@ jobs:
           # after the test run completes store videos and any screenshots
         continue-on-error: true
 
+      - name: Prepare Cucumber HTML Report
+        run: node cucumber-html-report.js
       - name: Upload screenshots & videos
         uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
@@ -95,6 +97,6 @@ jobs:
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
       - uses: actions/upload-artifact@v4
         with:
-          name: cucumber-html-report
+          name: Upload Cucumber HTML Report
           path: cypress/cucumberReports/cucumber-HTMLreport.html
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
