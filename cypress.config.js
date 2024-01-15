@@ -82,3 +82,5 @@ then type in Terminal: git remote set-url origin https://vafaabadi12@dev.azure.c
 then type in again in Terminal: git remote -v
 now, you see that the remote origin url changed from GitHub to Azure. 
 */
+
+// Push to side branch to test Actions get triggered.
