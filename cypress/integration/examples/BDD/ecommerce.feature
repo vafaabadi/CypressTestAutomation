@@ -2,7 +2,7 @@ Feature: End to end ecommerce validation
 
     application regression test
 
-    @excelfile
+    @excelfileEDITED
     Scenario: Download, Parse, read Excel file and assert a specific cell in the file
     Given I navigate to the web page - Excel
     When I download the Excel file
