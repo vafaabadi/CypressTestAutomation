@@ -84,3 +84,4 @@ now, you see that the remote origin url changed from GitHub to Azure.
 */
 
 // Push to side branch to test Actions get triggered.
+// Push on a 2nd side branch to make sure Push on Side Branch will trigger Ations.
