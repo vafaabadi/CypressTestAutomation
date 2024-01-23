@@ -174,7 +174,6 @@ Then ('Assert I logged in successfully.', ()=>
             console.log(ele)
             expect(ele.includes('Congratulations')).to.be.true
         })
-        cy.wait(20000)
 }) 
 
 Given ('I navigate to the web page - Excel', ()=>
