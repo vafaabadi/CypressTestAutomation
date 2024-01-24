@@ -159,8 +159,10 @@ Given ('I visit the web site I want to log into', ()=>
 
 When ('I read credentials from DB and provide them as username and password', ()=>
 {
-    logInPage.getUsernameBox().type(globalThis.cred[1])
-    logInPage.getPasswordBox().type(globalThis.cred[2], {log: false})
+    //logInPage.getUsernameBox().type(globalThis.cred[1])
+    //logInPage.getPasswordBox().type(globalThis.cred[2], {log: false})
+    logInPage.getUsernameBox().type(Cypress.env('username'))
+    logInPage.getPasswordBox().type(Cypress.env('password'), {log: false})
 
     logInPage.getSubmitBox().click()
 })
