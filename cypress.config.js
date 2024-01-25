@@ -50,8 +50,8 @@ module.exports = defineConfig({
   defaultCommandTimeout: 20000, // globally applied to the current project across all the test cases listed under CypressTestAutomation
   env:{
     url: "https://www.rahulshettyacademy.com",
-    username: "ThisIsTest",
-    password: "ThisIsTest",
+    username: "student",
+    password: "Password123",
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",

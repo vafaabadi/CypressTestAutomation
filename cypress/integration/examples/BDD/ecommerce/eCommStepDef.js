@@ -1,6 +1,8 @@
 /// <reference types="Cypress" />
 /// <reference types="cypress-iframe" />
+/// <reference types="cypress-xpath" />
 
+import 'cypress-xpath'
 import HomePage from '../../../TestFramework_PageObjects/HomePage'
 import PhonesPage from '../../../TestFramework_PageObjects/PhonesPage'
 import CheckOutPage from '../../../TestFramework_PageObjects/CheckOutPage'
@@ -16,6 +18,8 @@ const phonesPage = new PhonesPage()
 const checkOutPage = new CheckOutPage()
 const csvWebPage = new CsvWebPage()
 const logInPage = new LogInPage()
+
+
 
 
 Given ('I open ecommerce page',()=>
@@ -155,8 +159,11 @@ Given ('I visit the web site I want to log into', ()=>
 
 When ('I read credentials from DB and provide them as username and password', ()=>
 {
-    logInPage.getUsernameBox().type(globalThis.cred[1])
-    logInPage.getPasswordBox().type(globalThis.cred[2])
+    //logInPage.getUsernameBox().type(globalThis.cred[1])
+    //logInPage.getPasswordBox().type(globalThis.cred[2], {log: false})
+    logInPage.getUsernameBox().type(Cypress.env('username'))
+    logInPage.getPasswordBox().type(Cypress.env('password'), {log: false})
+
     logInPage.getSubmitBox().click()
 })
 
@@ -200,4 +207,36 @@ Then ('Assert a specific cell in the Excel file', ()=>
             const employeeDeptId = result.Department[14].A
             expect(globalThis.data.employeedeptid).to.equal(employeeDeptId)            
         })
+})
+
+When ('I read password from command line as env variable', ()=>
+{
+    const passWord = Cypress.env('password')
+    if (typeof passWord !== 'string' || !passWord) {        // If password not provided in command line, the following error message will be triggered
+        throw new Error('Missing password value, set password using password=...')
+    }
+    logInPage.getUsernameBox().type(Cypress.env('username'))
+    logInPage.getPasswordBox().type(Cypress.env('password'), {log: false})
+    /***************************** 
+    ****************************** 
+    // npx cypress run --env tags="@LogInCommandLine",password=Password123 --headed --browser chrome --no-exit
+    ******************************
+    *****************************/
+    logInPage.getSubmitBox().click()
+})
+
+Given ('I navigate to a practice web site', ()=> 
+{
+    cy.visit('https://magento.softwaretestingboard.com/')
+})
+
+When ('I use multiple x-path to navigate the web site', ()=>
+{
+    cy.xpath('//*[@id="ui-id-5"]').click()
+    cy.xpath('//*[@id="narrow-by-list2"]/dd/ol/li[2]/a').click()
+})
+
+Then ('Assert the test case doesnt fail using x-path.', ()=>
+{
+    cy.xpath('//*[text()[contains(.,"per page")]]').contains('per page')
 })

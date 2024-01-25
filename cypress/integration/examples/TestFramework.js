@@ -8,6 +8,7 @@ import HomePage from '../TestFramework_PageObjects/HomePage'
 import PhonesPage from '../TestFramework_PageObjects/PhonesPage'
 import CheckOutPage from '../TestFramework_PageObjects/CheckOutPage'
 import LogInPage from '../TestFramework_PageObjects/LogInPage'
+import { get } from 'cypress/types/lodash'
 
 
 
@@ -110,6 +111,7 @@ describe('Hooks', function() {
         replace specPattern: 'cypress/integration/examples/*.js by specPattern: 'cypress/integration/examples/BDD/*.feature' and run the cypress as normal.
 
         to run BDD test cases by tag, run the following in Terminal: npx cypress run --env tags="@regression"  OR   npx cypress run --env tags="@smoke"   . The BDD test cases were given tags @regression and @smoke in ecommerce.feature file under BDD folder under this project.
+        tags: no exist : npx cypress run --env tags="@DbIntegration" --headed --browser chrome --no-exit
 
         to trigger HTML report, run in the Terminal: node C:\Users\44741\CypressTestAutomation\cucumber-html-report.js
         Once you ran the line code above, then copy the path of C:\Users\44741\CypressTestAutomation\cypress\cucumberReports\cucumber-HTMLreport.html\index.html and pasted it on web browser to view graphical HTML report.
@@ -320,6 +322,13 @@ describe('Hooks', function() {
 
     // dummy comment to test a push to Github
 
+    /*
+    Pass password as env variable in command line
+    To feed the password from command line, you need to introduce an env variable called   passowrd=''   in cypress.config.js file first.
+    Then, in the command line you pass the follwoing line:
+    npx cypress run --env tags="@LogInCommandLine",password=Password123 --headed --browser chrome --no-exit             (for adding multiple env variables, seperate them by comma)
+    --env password=Password123     will override the env variable already introduced in cypress.config.js file.
+    */
 
 
 

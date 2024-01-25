@@ -21,6 +21,7 @@
     "cypress": "^13.6.2",
     "cypress-iframe": "^1.0.1",
     "cypress-sql-server": "^1.0.0",
+    "cypress-xpath": "^2.0.1",
     "multiple-cucumber-html-reporter": "^3.6.0",
     "neat-csv": "^5.1.0"
   },
