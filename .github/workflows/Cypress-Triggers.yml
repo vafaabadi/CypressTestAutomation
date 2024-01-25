@@ -70,7 +70,7 @@ jobs:
         run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/**/*" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
         env:
           # pass GitHub token to allow accurately detecting a build vs a re-run build
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.ACTION_PASSWORD }}
           # pass the Cypress Cloud record key as an environment variable
           CYPRESS_RECORD_KEY: a979428a-d58d-44e7-8a7b-954738a203b7
           # pass the project ID from the secrets through environment variable
