@@ -51,7 +51,7 @@ module.exports = defineConfig({
   env:{
     url: "https://www.rahulshettyacademy.com",
     username: "student",
-    password: "Password123",
+    password: "",
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
