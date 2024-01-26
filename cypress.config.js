@@ -84,3 +84,11 @@ now, you see that the remote origin url changed from GitHub to Azure.
 */
 
 // branch UpNorth
+
+/*
+To implement Github secrets:
+Add process.env.EXAMPLE to the variable in cypress.config.js file. password: process.env.LOGIN_PASSWORD  userName: process.env.DB_USERNAME  password: process.env.DB_PASSWORD,
+Then add the env variable key and value to the Yaml file. LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}  DB_USERNAME: ${{ secrets.DB_USERNAME }}  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+Then set up Repo secrets on GitHub settings. DB_PASSWORD   DB_USERNAME    LOGIN_PASSWORD
+Look at three examples: password, DB username and DB password.
+*/
