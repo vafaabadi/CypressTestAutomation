@@ -10,8 +10,8 @@ const fs = require('fs');
 async function setupNodeEvents(on, config) {
 
   config.db = {
-    userName: "cypresstester",
-    password: "Asdf95jkl!",
+    userName: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
     server: "cypresstestautomationportfolio.database.windows.net",
     options: {
         database: "CypressTestAutomation",
@@ -51,7 +51,7 @@ module.exports = defineConfig({
   env:{
     url: "https://www.rahulshettyacademy.com",
     username: "student",
-    password: process.env.password,
+    password: process.env.LOGIN_PASSWORD,
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
