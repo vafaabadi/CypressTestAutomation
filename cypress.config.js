@@ -10,8 +10,8 @@ const fs = require('fs');
 async function setupNodeEvents(on, config) {
 
   config.db = {
-    userName: "cypresstester",
-    password: "Asdf95jkl!",
+    userName: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
     server: "cypresstestautomationportfolio.database.windows.net",
     options: {
         database: "CypressTestAutomation",
@@ -51,7 +51,7 @@ module.exports = defineConfig({
   env:{
     url: "https://www.rahulshettyacademy.com",
     username: "student",
-    password: "Password123",
+    password: process.env.LOGIN_PASSWORD,
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
@@ -71,7 +71,7 @@ module.exports = defineConfig({
 });
 
 /* On Cypress Test Runner, go to Settings, Project Settings, scroll down and pick any defaults settings & change and paste it in cypress.config.js on VS Code to modify that setting.
-*/
+*/   
 
 
 
@@ -84,3 +84,11 @@ now, you see that the remote origin url changed from GitHub to Azure.
 */
 
 // branch UpNorth
+
+/*
+To implement Github secrets:
+Add process.env.EXAMPLE to the variable in cypress.config.js file. password: process.env.LOGIN_PASSWORD  userName: process.env.DB_USERNAME  password: process.env.DB_PASSWORD,
+Then add the env variable key and value to the Yaml file. LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}  DB_USERNAME: ${{ secrets.DB_USERNAME }}  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+Then set up Repo secrets on GitHub settings. DB_PASSWORD   DB_USERNAME    LOGIN_PASSWORD
+Look at three examples: password, DB username and DB password.
+*/                          
