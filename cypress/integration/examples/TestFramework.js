@@ -342,9 +342,10 @@ describe('Hooks', function() {
     /* parallel test execution on multiple browsers:
     
     add the following lines to "scripts" under package.json file. Then run them from Terminal. You will observe the test spec/s will be run on multiple browsers in paraller on cloud. 
+    type in terminal: npm run cy:run_browser
     
-    "cy:run_spec": "npx cypress run --spec 'cypress/integration/examples/BDD/*.feature' --headless --record --key a979428a-d58d-44e7-8a7b-954738a203b7"
-    "cy:run_browser": " npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser edge"
+    "cy:run_spec": "npx cypress run --spec 'cypress/integration/examples/BDD/*.feature' --headless --record --key a979428a-d58d-44e7-8a7b-954738a203b7 --parallel",
+    "cy:run_browser": " npm run cy:run_spec -- --browser firefox --group Firefox --ci-build-id 1 & npm run cy:run_spec -- --browser chrome --group Chrome --ci-build-id 1 & npm run cy:run_spec -- --browser edge --group Edge --ci-build-id 1"
     */
 
 
