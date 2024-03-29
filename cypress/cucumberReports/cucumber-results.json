@@ -19,7 +19,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4636000000
+              "duration": 3989000000
             }
           },
           {
@@ -32,7 +32,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 5089000000
+              "duration": 5181000000
             }
           },
           {
@@ -45,7 +45,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 20000000
+              "duration": 25000000
             }
           }
         ],
@@ -74,7 +74,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4994000000
+              "duration": 4109000000
             }
           },
           {
@@ -87,7 +87,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2334000000
+              "duration": 2253000000
             }
           },
           {
@@ -100,7 +100,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 67000000
+              "duration": 84000000
             }
           }
         ],
@@ -129,7 +129,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3525000000
+              "duration": 1393000000
             }
           },
           {
@@ -142,7 +142,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1721000000
+              "duration": 1427000000
             }
           },
           {
@@ -155,7 +155,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 21472000000,
+              "duration": 21436000000,
               "error_message": "Timed out retrying after 20000ms: Expected to find element: `p strong`, but never found it."
             },
             "embeddings": [
@@ -191,7 +191,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2254000000
+              "duration": 1336000000
             }
           },
           {
@@ -204,7 +204,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1330000000
+              "duration": 1500000000
             }
           },
           {
@@ -217,7 +217,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 21346000000,
+              "duration": 21419000000,
               "error_message": "Timed out retrying after 20000ms: Expected to find element: `p strong`, but never found it."
             },
             "embeddings": [
@@ -253,7 +253,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2386000000
+              "duration": 1362000000
             }
           },
           {
@@ -266,7 +266,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2263000000
+              "duration": 1543000000
             }
           },
           {
@@ -279,7 +279,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 21475000000,
+              "duration": 21432000000,
               "error_message": "Timed out retrying after 20000ms: Expected to find element: `p strong`, but never found it."
             },
             "embeddings": [
@@ -315,7 +315,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1555000000
+              "duration": 1829000000
             }
           },
           {
@@ -328,7 +328,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4079000000
+              "duration": 3843000000
             }
           },
           {
@@ -341,7 +341,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 60000000
+              "duration": 50000000
             }
           }
         ],
@@ -370,7 +370,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1753000000
+              "duration": 1834000000
             }
           },
           {
@@ -383,7 +383,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1947000000
+              "duration": 2035000000
             }
           },
           {
@@ -396,7 +396,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 109000000
+              "duration": 133000000
             }
           },
           {
@@ -409,7 +409,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7549000000
+              "duration": 7602000000
             }
           }
         ],
@@ -438,7 +438,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 705000000
+              "duration": 734000000
             }
           },
           {
@@ -451,7 +451,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 354000000
+              "duration": 419000000
             }
           },
           {
@@ -464,7 +464,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 25000000
+              "duration": 32000000
             }
           },
           {
@@ -477,7 +477,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 365000000
+              "duration": 402000000
             }
           }
         ],

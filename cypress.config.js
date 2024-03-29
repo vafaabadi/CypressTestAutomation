@@ -7,6 +7,8 @@ const sqlServer = require('cypress-sql-server');
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
 
+
+
 async function setupNodeEvents(on, config) {
 
   config.db = {
@@ -44,12 +46,17 @@ async function setupNodeEvents(on, config) {
   return config;
 }
 
+
+
+
 module.exports = defineConfig({
 
   viewportHeight: 1080,
   viewportWidth: 1920,
   requestTimeout: 10000,        // globally applied to the current project across all the test cases listed under CypressTestAutomation
   defaultCommandTimeout: 20000, // globally applied to the current project across all the test cases listed under CypressTestAutomation
+   
+
   env:{
     url: "https://www.rahulshettyacademy.com",
     baseURLAPIs: "https://conduit.bondaracademy.com/",
@@ -58,8 +65,10 @@ module.exports = defineConfig({
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
+
   },
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
+  
   video: true,
   retries: {
     runMode: 2,           // rerun the failed test cases two more time in headless or in CICD.
