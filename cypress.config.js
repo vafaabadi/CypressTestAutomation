@@ -46,10 +46,13 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
 
+  viewportHeight: 1080,
+  viewportWidth: 1920,
   requestTimeout: 10000,        // globally applied to the current project across all the test cases listed under CypressTestAutomation
   defaultCommandTimeout: 20000, // globally applied to the current project across all the test cases listed under CypressTestAutomation
   env:{
     url: "https://www.rahulshettyacademy.com",
+    baseURLAPIs: "https://conduit.bondaracademy.com/",
     username: "student",
     password: process.env.LOGIN_PASSWORD,
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
@@ -59,13 +62,17 @@ module.exports = defineConfig({
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
   video: true,
   retries: {
-    runMode: 0,           // rerun the failed test cases one more time.
+    runMode: 2,           // rerun the failed test cases two more time in headless or in CICD.
+    openMode: 1,          // rerun the failed test cases one more time in visual mode (test runner is open).
   },
   e2e: {
     setupNodeEvents,
+  // excludeSpecPattern: ['**/nameOfFolder','**/nameOfAnotherFolder'],     <-- excludes folders from cypress/e2e path if such a setup exist.
     specPattern: 'cypress/integration/examples/BDD/*.feature'
     // to avoid BDD triggering and running, replace the line by:
     // specPattern: 'cypress/integration/examples/*.js'
+    // specPattern: 'cypress/integration/examples/BDD/*.feature'
+    // specPattern: 'cypress/integration/examples/WebUiElements.js'
 
   },
 });

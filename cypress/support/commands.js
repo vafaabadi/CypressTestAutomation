@@ -49,6 +49,28 @@ Cypress.Commands.add('ParseCSVFileColor', (RelativePath,desiredHEX,desiredRGB)=>
     )
 })
 
+Cypress.Commands.add('LoginToAPIapplication', () =>{
+
+    const logInCredentials = {user: {email: "cytester", password: "ABCD12345"}} 
+
+    cy.request('POST', 'https://conduit-api.bondaracademy.com/api/users/login', logInCredentials)
+        .its('body').then( body => {
+            const token = body.user.token
+            cy.wrap(token).as('token')
+            cy.visit(Cypress.env('baseURLAPIs')+'/', {
+                onBeforeLoad (win){
+                    win.localStorage.setItem('jwtToken', token)
+                }
+            })
+
+        });
+
+    /* cy.visit(Cypress.env('baseURLAPIs') + '/login')
+    cy.get('[placeholder="Email"]').type('cytester') 
+    cy.get('[placeholder="Password"]').type('ABCD12345')
+    cy.get('button').click() */
+})
+
 
 
 

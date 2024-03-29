@@ -320,6 +320,9 @@ describe('Hooks', function() {
     It will run the test cases on Cloud
     */
 
+    //To run a test only in browsers chrome and edge, for example. => it('POM_DataDriven_Command_Iteration', {browser: ['chrome','edge']} , () => {     test body    })
+    //To run a test on any browsers but not firefox or egde, for example  => it('POM_DataDriven_Command_Iteration', {browser: ['!firefox','!edge']} , () => {     test body    })
+
     // dummy comment to test a push to Github
 
     /*
@@ -328,6 +331,20 @@ describe('Hooks', function() {
     Then, in the command line you pass the follwoing line:
     npx cypress run --env tags="@LogInCommandLine",password=Password123 --headed --browser chrome --no-exit             (for adding multiple env variables, seperate them by comma)
     --env password=Password123     will override the env variable already introduced in cypress.config.js file.
+    mix of tags and env variables: npx cypress run --env tags="@LogInCommandLine",password=Password123 --headed --browser chrome --no-exit
+    */
+
+    /*
+    Run one spec from list of specs
+    npx cypress run --spec "cypress/integration/examples/WebControlesUI.js"
+    */
+
+    /* parallel test execution on multiple browsers:
+    
+    add the following lines to "scripts" under package.json file. Then run them from Terminal. You will observe the test spec/s will be run on multiple browsers in paraller on cloud. 
+    
+    "cy:run_spec": "npx cypress run --spec 'cypress/integration/examples/BDD/*.feature' --headless --record --key a979428a-d58d-44e7-8a7b-954738a203b7"
+    "cy:run_browser": " npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser edge"
     */
 
 

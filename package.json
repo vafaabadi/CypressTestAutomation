@@ -7,7 +7,9 @@
     "test": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test -- --headed --parallel",
     "chromeTest": "npm run test -- --browser chrome --parallel",
-    "recordCloudTest": "npm run test -- --record --key a979428a-d58d-44e7-8a7b-954738a203b7"
+    "recordCloudTest": "npm run test -- --record --key a979428a-d58d-44e7-8a7b-954738a203b7",
+    "cy:run_spec": "npx cypress run --spec 'cypress/integration/examples/BDD/*.feature' --headless --record --key a979428a-d58d-44e7-8a7b-954738a203b7 --parallel",
+    "cy:run_browser": " npm run cy:run_spec -- --browser firefox --group Firefox --ci-build-id 1 & npm run cy:run_spec -- --browser chrome --group Chrome --ci-build-id 1 & npm run cy:run_spec -- --browser edge --group Edge --ci-build-id 1"
   },
   "cypress-cucumber-preprocessor": {
     "json": {
@@ -23,7 +25,8 @@
     "cypress-sql-server": "^1.0.0",
     "cypress-xpath": "^2.0.1",
     "multiple-cucumber-html-reporter": "^3.6.0",
-    "neat-csv": "^5.1.0"
+    "neat-csv": "^5.1.0",
+    "type": "module"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.0",
