@@ -9,7 +9,7 @@
     "chromeTest": "npm run test -- --browser chrome --parallel",
     "recordCloudTest": "npm run test -- --record --key a979428a-d58d-44e7-8a7b-954738a203b7"
   },
-  
+
   "cypress-cucumber-preprocessor": {
     "json": {
       "enabled": true,
@@ -24,14 +24,13 @@
     "cypress-sql-server": "^1.0.0",
     "cypress-xpath": "^2.0.1",
     "multiple-cucumber-html-reporter": "^3.6.0",
-    "neat-csv": "^5.1.0",
-    "type": "module"
+    "neat-csv": "^5.1.0"
   },
-    
+
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.0",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "convert-excel-to-json": "^1.7.0"
-    
+
   }
 }
