@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cy:run": "cypress run --headed",
+    "cy:run:parallel": "cypress-parallel -s cy:run --group-by runMode --processes 4",
+    
     "test": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test -- --headed --parallel",
     "chromeTest": "npm run test -- --browser chrome --parallel",

@@ -4,6 +4,6 @@ cypress.env.json
 
 package-lock.json
 
-cypress/screenshots
+screenshots
 
-cypress/videos
+videos
