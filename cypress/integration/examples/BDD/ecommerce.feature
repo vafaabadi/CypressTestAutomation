@@ -2,6 +2,8 @@ Feature: End to end ecommerce validation
 
     application regression test
 
+
+
     @Xpath
     Scenario: X-path extension works
     Given I navigate to a practice web site
@@ -53,4 +55,5 @@ Feature: End to end ecommerce validation
     Then Validate the form behaviour
     Then select the shop page
      
-
+ 
+ 

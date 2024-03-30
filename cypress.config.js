@@ -60,19 +60,19 @@ module.exports = defineConfig({
   env:{
     url: "https://www.rahulshettyacademy.com",
     baseURLAPIs: "https://conduit.bondaracademy.com/",
-    username: "student",
-    password: process.env.LOGIN_PASSWORD,
+    Login_UserName: "student",
+    Login_PassWord: "Password123", //process.env.LOGIN_PASSWORD,
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
-
+    
   },
   projectId: "9c692s",    // ProjectID is unique to the current project open in VSCode: CypressTestAutomation
   
   video: true,
   retries: {
-    runMode: 2,           // rerun the failed test cases two more time in headless or in CICD.
-    openMode: 1,          // rerun the failed test cases one more time in visual mode (test runner is open).
+    runMode: 0,           // rerun the failed test cases two more time in headless or in CICD.
+    openMode: 0,          // rerun the failed test cases one more time in visual mode (test runner is open).
   },
   e2e: {
     setupNodeEvents,

@@ -348,7 +348,11 @@ describe('Hooks', function() {
     "cy:run_browser": " npm run cy:run_spec -- --browser firefox --group Firefox --ci-build-id 1 & npm run cy:run_spec -- --browser chrome --group Chrome --ci-build-id 1 & npm run cy:run_spec -- --browser edge --group Edge --ci-build-id 1"
     */
 
-
+    /* Percy, visual testing, how to run Percy from Terminal:
+    npx percy exec -- cypress run
+    npx percy exec -- cypress run --spec 'cypress\integration\examples\BDD\ecommerce.feature'
+    npx percy exec -- cypress run --spec 'cypress\integration\examples\BDD\ecommerce.feature' --env tags="@VisualTesting"
+    */
 
     it('DataDriven_Command_iteration_MultipleItemsSelected', function() {
       

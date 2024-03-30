@@ -161,16 +161,16 @@ When ('I read credentials from DB and provide them as username and password', ()
 {
     //logInPage.getUsernameBox().type(globalThis.cred[1])
     //logInPage.getPasswordBox().type(globalThis.cred[2], {log: false})
-    logInPage.getUsernameBox().type(Cypress.env('username'))
-    logInPage.getPasswordBox().type(Cypress.env('password'), {log: false})
+    logInPage.getUsernameBox().type(Cypress.env('Login_UserName'))
+    logInPage.getPasswordBox().type(Cypress.env('Login_PassWord'), {log: false})
 
     logInPage.getSubmitBox().click()
 })
 
 Then ('Assert I logged in successfully.', ()=>
 {
-    cy.wait(1000)
-    cy.get('p strong').then(function(ele)
+    cy.wait(2000)
+    cy.get('strong').then(function(ele)
         {
             ele = ele.text()
             console.log(ele)
@@ -215,8 +215,8 @@ When ('I read password from command line as env variable', ()=>
     if (typeof passWord !== 'string' || !passWord) {        // If password not provided in command line, the following error message will be triggered
         throw new Error('Missing password value, set password using password=...')
     }
-    logInPage.getUsernameBox().type(Cypress.env('username'))
-    logInPage.getPasswordBox().type(Cypress.env('password'), {log: false})
+    logInPage.getUsernameBox().type(Cypress.env('Login_UserName'))
+    logInPage.getPasswordBox().type(Cypress.env('Login_PassWord'), {log: false})
     /***************************** 
     ****************************** 
     // npx cypress run --env tags="@LogInCommandLine",password=Password123 --headed --browser chrome --no-exit
@@ -239,4 +239,26 @@ When ('I use multiple x-path to navigate the web site', ()=>
 Then ('Assert the test case doesnt fail using x-path.', ()=>
 {
     cy.xpath('//*[text()[contains(.,"per page")]]').contains('per page')
+})
+
+
+Given ('I navigate to a dummy web site', () => 
+{
+    cy.visit('https://rahulshettyacademy.com/')
+    cy.wait(1000)
+    
+})
+
+When ('I capture the visual web element on the screen', () => 
+{
+    cy.contains('Courses').first().click()
+    cy.wait(1000)
+})
+
+Then ('Assert the visual element has not regressed', () => 
+{
+    cy.get('.course-box-image').first().then( image => {
+        cy.wait(1000)
+        cy.percySnapshot('All-Access subscription')
+    })
 })
