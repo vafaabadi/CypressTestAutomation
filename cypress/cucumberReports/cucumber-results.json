@@ -1,57 +1,57 @@
 [
   {
-    "description": "    application regression test",
+    "description": "    Paraller test execution - basic test cases",
     "elements": [
       {
         "description": "",
-        "id": "end-to-end-ecommerce-validation;x-path-extension-works",
+        "id": "few-basic-test-cases-to-check-the-functionality-of-bdd;download,-parse,-read-csv-file-and-assert-a-specific-color-in-the-file",
         "keyword": "Scenario",
         "line": 8,
-        "name": "X-path extension works",
+        "name": "Download, Parse, read CSV file and assert a specific color in the file",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 9,
-            "name": "I navigate to a practice web site",
+            "name": "I navigate to the web page",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 3649000000
+              "duration": 1658000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 10,
-            "name": "I use multiple x-path to navigate the web site",
+            "name": "I download the CSV file",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 3381000000
+              "duration": 3892000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 11,
-            "name": "Assert the test case doesnt fail using x-path.",
+            "name": "Assert a specific color in the CSV file",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 72000000
+              "duration": 64000000
             }
           }
         ],
         "tags": [
           {
-            "name": "@Xpath",
+            "name": "@CsvFile",
             "line": 7
           }
         ],
@@ -59,55 +59,310 @@
       },
       {
         "description": "",
-        "id": "end-to-end-ecommerce-validation;download,-parse,-read-excel-file-and-assert-a-specific-cell-in-the-file",
+        "id": "few-basic-test-cases-to-check-the-functionality-of-bdd;filling-the-form-prior-to-shop",
         "keyword": "Scenario",
         "line": 14,
-        "name": "Download, Parse, read Excel file and assert a specific cell in the file",
+        "name": "Filling the form prior to Shop",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 15,
-            "name": "I navigate to the web page - Excel",
+            "name": "I open ecommerce page",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 3203000000
+              "duration": 1755000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 16,
-            "name": "I download the Excel file",
+            "name": "I fill the form details",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2199000000
+              "duration": 369000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 17,
+            "name": "Validate the form behaviour",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "select the shop page",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1203000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@FormValidation",
+            "line": 13
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "few-basic-test-cases-to-check-the-functionality-of-bdd",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Few basic test cases to check the functionality of BDD",
+    "tags": [],
+    "uri": "cypress\\integration\\examples\\BDD\\basics.feature"
+  },
+  {
+    "description": "    Parallel test execution ",
+    "elements": [
+      {
+        "description": "",
+        "id": "dummy-bdd-test-cases-for-parallel-test-execution;test-case-dummy-001",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "test case Dummy 001",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I navigate to my personal GitHub Account",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1447000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I visit CypressTestAutomation repository",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 242000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "Assert name of the repository is CypressTestAutomation",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1245000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Dummy001",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "dummy-bdd-test-cases-for-parallel-test-execution;test-case-dummy-002",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "test case Dummy 002",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "Visit Github",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 406000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "Click on pinned repository",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 301000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "Assert you clicked on C-Sharp Selenium Repository",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 979000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Dummy002",
+            "line": 13
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "dummy-bdd-test-cases-for-parallel-test-execution;x-path-extension-works",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "X-path extension works",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "I navigate to a practice web site",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2400000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "I use multiple x-path to navigate the web site",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2798000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "Assert the test case doesnt fail using x-path.",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Xpath",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "dummy-bdd-test-cases-for-parallel-test-execution",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Dummy BDD test cases for parallel test execution",
+    "tags": [],
+    "uri": "cypress\\integration\\examples\\BDD\\dummyBDD.feature"
+  },
+  {
+    "description": "    application regression test",
+    "elements": [
+      {
+        "description": "",
+        "id": "end-to-end-ecommerce-validation;download,-parse,-read-excel-file-and-assert-a-specific-cell-in-the-file",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Download, Parse, read Excel file and assert a specific cell in the file",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I navigate to the web page - Excel",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3215000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I download the Excel file",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2214000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
             "name": "Assert a specific cell in the Excel file",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 103000000
+              "duration": 76000000
             }
           }
         ],
         "tags": [
           {
             "name": "@ExcelFile",
-            "line": 13
+            "line": 9
           }
         ],
         "type": "scenario"
@@ -116,53 +371,53 @@
         "description": "",
         "id": "end-to-end-ecommerce-validation;read-credentials-from-db-and-use-it-to-log-into-web-site",
         "keyword": "Scenario",
-        "line": 20,
+        "line": 16,
         "name": "Read credentials from DB and use it to log into web site",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 21,
+            "line": 17,
             "name": "I visit the web site I want to log into",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2517000000
+              "duration": 1693000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 22,
+            "line": 18,
             "name": "I read credentials from DB and provide them as username and password",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2151000000
+              "duration": 1443000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 23,
+            "line": 19,
             "name": "Assert I logged in successfully.",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2063000000
+              "duration": 2032000000
             }
           }
         ],
         "tags": [
           {
             "name": "@DbIntegration",
-            "line": 19
+            "line": 15
           }
         ],
         "type": "scenario"
@@ -171,53 +426,53 @@
         "description": "",
         "id": "end-to-end-ecommerce-validation;feed-password-as-env-variable-from-command-line",
         "keyword": "Scenario",
-        "line": 26,
+        "line": 22,
         "name": "Feed password as env variable from command line",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 27,
+            "line": 23,
             "name": "I visit the web site I want to log into",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 565000000
+              "duration": 512000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 28,
+            "line": 24,
             "name": "I read password from command line as env variable",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1416000000
+              "duration": 1340000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 29,
+            "line": 25,
             "name": "Assert I logged in successfully.",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2027000000
+              "duration": 2024000000
             }
           }
         ],
         "tags": [
           {
             "name": "@LogInCommandLine",
-            "line": 25
+            "line": 21
           }
         ],
         "type": "scenario"
@@ -226,108 +481,53 @@
         "description": "",
         "id": "end-to-end-ecommerce-validation;pass-encrypted-password-to-the-test-case",
         "keyword": "Scenario",
-        "line": 32,
+        "line": 28,
         "name": "Pass encrypted password to the test case",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 33,
+            "line": 29,
             "name": "I visit the web site I want to log into",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 461000000
+              "duration": 373000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 34,
+            "line": 30,
             "name": "I read password from command line as env variable",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1325000000
+              "duration": 1415000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 35,
+            "line": 31,
             "name": "Assert I logged in successfully.",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2033000000
+              "duration": 2025000000
             }
           }
         ],
         "tags": [
           {
             "name": "@LogInEncrypted",
-            "line": 31
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "end-to-end-ecommerce-validation;download,-parse,-read-csv-file-and-assert-a-specific-color-in-the-file",
-        "keyword": "Scenario",
-        "line": 39,
-        "name": "Download, Parse, read CSV file and assert a specific color in the file",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 40,
-            "name": "I navigate to the web page",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2017000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 41,
-            "name": "I download the CSV file",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3858000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 42,
-            "name": "Assert a specific color in the CSV file",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 74000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@CsvFile",
-            "line": 38
+            "line": 27
           }
         ],
         "type": "scenario"
@@ -336,134 +536,66 @@
         "description": "",
         "id": "end-to-end-ecommerce-validation;ecommerce-products-delivery",
         "keyword": "Scenario",
-        "line": 45,
+        "line": 37,
         "name": "ecommerce products delivery",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 46,
+            "line": 38,
             "name": "I open ecommerce page",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1818000000
+              "duration": 1754000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 47,
+            "line": 39,
             "name": "I add items to Cart",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2132000000
+              "duration": 1879000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 48,
+            "line": 40,
             "name": "Validate the total prices",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 168000000
+              "duration": 151000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 49,
+            "line": 41,
             "name": "Select the country, submit and verify Success! message",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 7741000000
+              "duration": 7528000000
             }
           }
         ],
         "tags": [
           {
             "name": "@OnlinePurchase",
-            "line": 44
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "end-to-end-ecommerce-validation;filling-the-form-prior-to-shop",
-        "keyword": "Scenario",
-        "line": 52,
-        "name": "Filling the form prior to Shop",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 53,
-            "name": "I open ecommerce page",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 741000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 54,
-            "name": "I fill the form details",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 349000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 55,
-            "name": "Validate the form behaviour",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 32000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 56,
-            "name": "select the shop page",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 367000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@FormValidation",
-            "line": 51
+            "line": 36
           }
         ],
         "type": "scenario"

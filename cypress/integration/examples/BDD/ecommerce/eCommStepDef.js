@@ -123,34 +123,7 @@ Then ('select the shop page',()=>
         homePage.getShopbttn().click()
 })
 
-Given ('I navigate to the web page',()=>
-{
-    cy.visit(Cypress.env('CsvUrl'))     // written as env variable under cypress.config.js file      CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/"
-})
 
-When ('I download the CSV file',()=>
-{
-    csvWebPage.getCsvDownloadableLink().then(function(element)
-        {
-            const csvFileText = element.text()                          // to extract the Success text message
-            expect(csvFileText.includes('color_srgb.csv')).to.be.true   // Asserting the text has the text in it.
-        })
-    csvWebPage.getCsvDownloadableLink().click()
-    cy.wait(3000)
-})
-
-Then ('Assert a specific color in the CSV file', ()=>
-{
-    // command from commands.js file // asserts specific cells in the csv file
-    cy.ParseCSVFileColor(globalThis.data.relativepathcsv,globalThis.data.csvhex,globalThis.data.csvhgb)
-
-    //// doesnt look for a specific cell and then assert the cell. it will search the whole csv file as a text and find the word you are asserting.
-    //cy.readFile(globalThis.data.relativepathcsv).then(function(text)
-    //{
-    //    expect(text).to.include(globalThis.data.csvhex)
-    //    expect(text).to.include(globalThis.data.csvhgb)
-    //})
-})
 
 Given ('I visit the web site I want to log into', ()=>
 {
@@ -225,21 +198,7 @@ When ('I read password from command line as env variable', ()=>
     logInPage.getSubmitBox().click()
 })
 
-Given ('I navigate to a practice web site', ()=> 
-{
-    cy.visit('https://magento.softwaretestingboard.com/')
-})
 
-When ('I use multiple x-path to navigate the web site', ()=>
-{
-    cy.xpath('//*[@id="ui-id-5"]').click()
-    cy.xpath('//*[@id="narrow-by-list2"]/dd/ol/li[2]/a').click()
-})
-
-Then ('Assert the test case doesnt fail using x-path.', ()=>
-{
-    cy.xpath('//*[text()[contains(.,"per page")]]').contains('per page')
-})
 
 
 Given ('I navigate to a dummy web site', () => 

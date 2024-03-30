@@ -4,11 +4,7 @@ Feature: End to end ecommerce validation
 
 
 
-    @Xpath
-    Scenario: X-path extension works
-    Given I navigate to a practice web site
-    When I use multiple x-path to navigate the web site
-    Then Assert the test case doesnt fail using x-path.
+    
 
     @ExcelFile
     Scenario: Download, Parse, read Excel file and assert a specific cell in the file
@@ -35,11 +31,7 @@ Feature: End to end ecommerce validation
     Then Assert I logged in successfully.
 
 
-    @CsvFile
-    Scenario: Download, Parse, read CSV file and assert a specific color in the file
-    Given I navigate to the web page
-    When I download the CSV file
-    Then Assert a specific color in the CSV file
+    
 
     @OnlinePurchase
     Scenario: ecommerce products delivery
@@ -48,12 +40,7 @@ Feature: End to end ecommerce validation
     When Validate the total prices
     Then Select the country, submit and verify Success! message 
     
-    @FormValidation
-    Scenario: Filling the form prior to Shop
-    Given I open ecommerce page
-    When I fill the form details
-    Then Validate the form behaviour
-    Then select the shop page
+    
      
  
  
