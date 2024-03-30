@@ -61,7 +61,7 @@ module.exports = defineConfig({
     url: "https://www.rahulshettyacademy.com",
     baseURLAPIs: "https://conduit.bondaracademy.com/",
     Login_UserName: "student",
-    Login_PassWord: "Password123", //process.env.LOGIN_PASSWORD,
+    Login_PassWord: process.env.LOGIN_PASSWORD,
     CsvUrl: "https://wsform.com/knowledgebase/sample-csv-files/",
     LoginUrl: "https://practicetestautomation.com/practice-test-login/",
     ExcelUrl: "https://www.wisdomaxis.com/technology/software/data/for-reports/",
