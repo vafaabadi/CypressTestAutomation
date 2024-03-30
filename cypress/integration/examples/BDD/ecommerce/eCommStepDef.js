@@ -184,7 +184,7 @@ Then ('Assert a specific cell in the Excel file', ()=>
 
 When ('I read password from command line as env variable', ()=>
 {
-    const passWord = Cypress.env('password')
+    const passWord = Cypress.env('Login_PassWord')
     if (typeof passWord !== 'string' || !passWord) {        // If password not provided in command line, the following error message will be triggered
         throw new Error('Missing password value, set password using password=...')
     }
