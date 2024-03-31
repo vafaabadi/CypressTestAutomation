@@ -10,8 +10,8 @@
     "recordCloudTest": "npm run test -- --record --key a979428a-d58d-44e7-8a7b-954738a203b7",
 
     "cy:run": "cypress run --headed",
-    "cy:run:parallel": "cypress-parallel -s cy:run --group-by runMode --processes 4",
-    
+    "cy:run:parallel": "cypress-parallel -s cy:run --group-by runMode --t 6",
+
     "cy:run_spec": "npx cypress run --spec 'cypress/integration/examples/BDD/*.feature' --headless --record --key a979428a-d58d-44e7-8a7b-954738a203b7 --parallel",
     "cy:run_browser": " npm run cy:run_spec -- --browser firefox --group Firefox --ci-build-id 1 & npm run cy:run_spec -- --browser chrome --group Chrome --ci-build-id 1 & npm run cy:run_spec -- --browser edge --group Edge --ci-build-id 1"
   },
@@ -36,6 +36,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
     "@cypress/browserify-preprocessor": "^3.0.2",
-    "convert-excel-to-json": "^1.7.0"
+    "convert-excel-to-json": "^1.7.0",
+    "cypress-parallel": "^0.14.0"
   }
 }
