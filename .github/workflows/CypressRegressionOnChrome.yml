@@ -1,4 +1,4 @@
-name: Cypress Tests on Triggers
+name: Cypress Regression on Chrome
 
 on:
   push:
@@ -66,10 +66,11 @@ jobs:
       - name: Cypress install
         run: npx cypress install
 
-      - name: Cypress test
+      - name: Cypress Regression - Chrome
 #        run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/**/*" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
 #        run: npx cypress-parallel -s cy:run -t 4 --specsDir 'cypress/integration/examples/BDD/*.feature'
-        run: npm run cy:run_spec -- --browser firefox --group Firefox & npm run cy:run_spec -- --browser chrome --group Chrome & npm run cy:run_spec -- --browser edge --group Edge
+#        run: npm run cy:run_spec -- --browser firefox --group Firefox & npm run cy:run_spec -- --browser chrome --group Chrome & npm run cy:run_spec -- --browser edge --group Edge
+        run: npx cypress run --browser chrome --group BrowserChrome --headless --spec "cypress/integration/examples/BDD/*.feature" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
         env:
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
