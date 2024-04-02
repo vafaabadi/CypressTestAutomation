@@ -142,6 +142,7 @@ When ('I read credentials from DB and provide them as username and password', ()
 
 Then ('Assert I logged in successfully.', ()=>
 {
+    cy.percySnapshot('DB_LogIn_Screenshot')
     cy.wait(2000)
     cy.get('strong').then(function(ele)
         {
@@ -195,7 +196,10 @@ When ('I read password from command line as env variable', ()=>
     // npx cypress run --env tags="@LogInCommandLine",password=Password123 --headed --browser chrome --no-exit
     ******************************
     *****************************/
+    cy.wait(2000)
+    cy.percySnapshot('CommandLine_EnvVariable')
     logInPage.getSubmitBox().click()
+    
 })
 
 
@@ -217,7 +221,8 @@ When ('I capture the visual web element on the screen', () =>
 Then ('Assert the visual element has not regressed', () => 
 {
     cy.get('.course-box-image').first().then( image => {
-        cy.wait(1000)
         cy.percySnapshot('All-Access subscription')
+        cy.wait(2000)
+        
     })
 })

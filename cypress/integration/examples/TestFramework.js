@@ -349,9 +349,9 @@ describe('Hooks', function() {
     */
 
     /* Percy, visual testing, how to run Percy from Terminal:
-    npx percy exec -- cypress run
-    npx percy exec -- cypress run --spec 'cypress\integration\examples\BDD\ecommerce.feature'
-    npx percy exec -- cypress run --spec 'cypress\integration\examples\BDD\ecommerce.feature' --env tags="@VisualTesting"
+    npx percy exec -- cypress run --browser chrome
+    npx percy exec -- cypress run --spec 'cypress/integration/examples/BDD/*.feature' --browser chrome
+    npx percy exec -- cypress run --spec 'cypress/integration/examples/BDD/*.feature' --browser chrome --env tags="@VisualTesting"
     */
 
     it('DataDriven_Command_iteration_MultipleItemsSelected', function() {
