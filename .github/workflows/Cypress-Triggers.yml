@@ -69,7 +69,7 @@ jobs:
       - name: Cypress test
 #        run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/**/*" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
 #        run: npx cypress-parallel -s cy:run -t 4 --specsDir 'cypress/integration/examples/BDD/*.feature'
-        run: npm run cy:run_spec -- --browser firefox --group BrowserFirefox & npm run cy:run_spec -- --browser chrome --group BrowserChrome & npm run cy:run_spec -- --browser edge --group BrowserEdge
+        run: npm run cy:run_spec -- --browser firefox --group Firefox & npm run cy:run_spec -- --browser chrome --group Chrome & npm run cy:run_spec -- --browser edge --group Edge
         env:
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
