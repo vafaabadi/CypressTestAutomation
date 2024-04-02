@@ -1,4 +1,4 @@
-name: Cypress Regression Visual Testing
+name: Cypress Regression Parallel
 
 on:
   push:
@@ -83,14 +83,15 @@ jobs:
           record: true
           parallel: true
 #          group: 'Actions example'
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
 
 
-      - name: Cypress Regression Edge - Visual Testing
+      - name: Cypress Regression Parallel
 #        run: npx cypress run --browser chrome --headed --spec "cypress/integration/examples/**/*" --record --parallel --tag "node-${NODE}" --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
 #        run: npx cypress-parallel -s cy:run -t 4 --specsDir 'cypress/integration/examples/BDD/*.feature'
 #        run: npm run cy:run_spec -- --browser firefox --group Firefox & npm run cy:run_spec -- --browser chrome --group Chrome & npm run cy:run_spec -- --browser edge --group Edge
 #        run: npx cypress run --browser firefox --group BrowserFirefox --headless --spec "cypress/integration/examples/BDD/*.feature" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
-        run: npx percy exec -- cypress run --browser edge --group BrowserEdge --headless --spec "cypress/integration/examples/BDD/*.feature" --tags "@DbIntegration or @LogInCommandLine or @LogInEncrypted" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
+        run: npx percy exec -- cypress run --browser chrome --group ParallelChrome --headless --spec "cypress/integration/examples/BDD/*.feature" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
           
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
