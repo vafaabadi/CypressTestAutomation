@@ -91,7 +91,7 @@ jobs:
 #        run: npx cypress-parallel -s cy:run -t 4 --specsDir 'cypress/integration/examples/BDD/*.feature'
 #        run: npm run cy:run_spec -- --browser firefox --group Firefox & npm run cy:run_spec -- --browser chrome --group Chrome & npm run cy:run_spec -- --browser edge --group Edge
 #        run: npx cypress run --browser firefox --group BrowserFirefox --headless --spec "cypress/integration/examples/BDD/*.feature" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
-        run: npx percy exec -- cypress run --browser chrome --group ParallelChrome --headless --spec "cypress/integration/examples/BDD/*.feature" --record --key process.env.CYPRESS_RECORD_KEY --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
+        run: npx percy exec -- cypress run --browser chrome --group ParallelChrome --headless --spec "cypress/integration/examples/BDD/*.feature" --record --key a979428a-d58d-44e7-8a7b-954738a203b7 --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
           
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
