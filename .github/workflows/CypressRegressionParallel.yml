@@ -47,6 +47,13 @@ jobs:
   cypress-run:
     runs-on: windows-latest
     needs: install
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # run 3 copies of the current job in parallel
+        containers: [1, 2, 3]
+
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -64,11 +71,18 @@ jobs:
         run: Expand-Archive ./project.zip -DestinationPath ./
 
       - name: Cypress install
-        run: npx cypress install
+        run: npx cypress 
+          
 
       - name: Percy install
         run: npm install --save-dev @percy/cli @percy/cypress
         
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          parallel: true
+#          group: 'Actions example'
 
 
       - name: Cypress Regression Edge - Visual Testing
@@ -77,6 +91,7 @@ jobs:
 #        run: npm run cy:run_spec -- --browser firefox --group Firefox & npm run cy:run_spec -- --browser chrome --group Chrome & npm run cy:run_spec -- --browser edge --group Edge
 #        run: npx cypress run --browser firefox --group BrowserFirefox --headless --spec "cypress/integration/examples/BDD/*.feature" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
         run: npx percy exec -- cypress run --browser edge --group BrowserEdge --headless --spec "cypress/integration/examples/BDD/*.feature" --tags "@DbIntegration or @LogInCommandLine or @LogInEncrypted" --record --config "pageLoadTimeout=100000,requestTimeout=30000,defaultCommandTimeout=30000"
+          
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
