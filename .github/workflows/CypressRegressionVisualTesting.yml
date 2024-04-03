@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   schedule:
     # runs tests every day at 6pm
-    - cron: '0 18 * * *'
+    - cron: '0 19 * * *'
 
 jobs:
   install:
